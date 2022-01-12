@@ -1,0 +1,20 @@
+apiversion: v1          #Key-value pair
+kind: Pod
+metadata:               # metadata = object
+  name: nginx
+  lable:                # label - Object
+    app: nginx
+spec:                    # spec - Object
+  containers:            # List of the objects- Containers
+  - name: nginx-container
+    image: nginx
+    ports:                # List - ports
+      - containerports: 80
+    volumemount:                # List of the objects - VolumeMount
+      - name: nginx-volume
+        mountPath: /var/lib/nginx
+  - name: nginx-container-sidecar
+    image: nginx
+    commans: ["/bin/sh"]
+    args: ["/bin/sh", "-c",++] # args - List
+

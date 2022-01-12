@@ -1,0 +1,12 @@
+# multiline Srings
+
+multilineStrings: |
+  this a multi line
+  sting
+  ectc.
+
+singlelineString: >
+  this a single line
+  sting
+  ectc.
+  

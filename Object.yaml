@@ -1,0 +1,46 @@
+# Microsevice is object with properties/ttributes
+
+microservice:
+  app: user-auth
+  port: 9000
+  version: 1.1.55
+
+# List
+microservice:
+  - app: user-auth
+    port: 9000
+    version: 1.1.55
+    depoloyed: yes # on/true
+    ## or
+  - {app: "user-auth", port: 9000, version: 1.1.55, depoloyed: yes }
+  - app: user-auth2
+    port: 90000
+    version: 1.1.522
+    depoloyed: no # on/true
+
+microservice:
+  - app: hello
+  - app: &hey hey
+  - app: hi
+
+use: *hey
+
+# list inside a list
+
+List: 
+  - version: 
+    - 1.1.
+    - 232.21
+    - 232.21.2
+
+List: # another format
+  version: [1.9, 2.0, 3.0]
+
+  # ["", "", ""]
+
+tags: 
+  - python
+  - web developer
+  - mysql
+
+cource_ta: ["tom", "ram","Shyam"]
