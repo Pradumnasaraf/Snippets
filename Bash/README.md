@@ -1,0 +1,59 @@
+- `whereis` - Find the path of that executable file.
+- `ls` - Shows list.
+- `ls -a` - Shows hidden file.
+- `ls -l` - persmission
+- `mkdir <new-dir-name>` - create a new folder.
+- `mkdir -p test/test1/test2` - Craete a dir between two directories.
+- `touch <new-file-name>` - create a blank file.
+- `cd <folder-name>` - chnage Directory.
+- `cd ..` - go one Directory back.
+- `cd` - go to home.
+- `xdg-open <file-fath>` - open the folder (graphical window) of a file/folder with path.
+- `xdg-open .` - open the folder of the current directory.
+- `echo $PATH` -
+- `cat <filename>` - Display file content.
+- `cat > <filename>` - create a file.
+- `cat >> <filename>` - Append a file.
+- `cat <filename> <filename2> ` - Display 2 file.
+- `cat <filename> <filename2> > <newfile-name>` - merge cotent of both of the file in a single file.
+- `echo` - get a output of a string
+- `echo $PATH` -
+- `pwd` - present working dir
+- `cd ../<foldername>` - open a previous dir folder.
+- `cd <path>` - open a dir with Path.
+- `ls -R` - shoes sub dir too.
+- `echo "Hello world > <filename>"` - overwrite the file.
+- `man <commad name>` - know about the command.
+- `cat <file-name> | tr > <new-file-name>` - know about the command.
+- `man <commad name>` - know about the command.
+- `cp <file-name> <new-fie-name>` - make a copy of a file to the current location.
+- `mv <file-name> <dir-path>` - Move a file from a one dir to another dir.
+- `mv <file-name> <new-fie-name>` - Rename a file
+- `rm <file-name>` - Remove a file
+- `rm -R <file-name>` - delete a floder with dir.
+- `sudo` - delete a floder with dir.
+- `df` - Check the capacity and storage details.
+- `df -m` - Check the capacity and storage details -m(In megabyte)  or -hg (gigabyte).
+- `du` - disk usages capcity -h (human readable)
+- `Head <file-name>` - will display first 10 line
+- `Tail <file-name>` - will display last 10 
+- `Tail <file-name> -n 2` - will display last 2 
+- `diff <file-1> <file-2>` - show diff between the two files 
+- `locate <file>` - show diff between the two files 
+- `fine <file/folder-name>` - find the file/folder
+- `find <dir-name>` - find files inside the dir
+- `find . -type d` - show only dir 
+- `find . -type f` - show only files 
+- `find . -type f -name "*.txt"` - show only files with that specfic name
+- `find . -type f -iname "*.txt"` - show only files with that specfic name - not case sentive
+- `find . -type f -mmin -20` - show files which modify less than 20 min ago
+- `find . -type f -mmin +20` - show files which modify more than 20 min ago.
+- `find . -type f -maxdepth 2` - will only show 1 folder deep.
+- `find . -size +1k` - will only show file/folder with size of 1kb
+
+### Permissions
+
+- `chmod u=rwx,g=rxw,o=rwx <file-name>` READ, WRITE AND EXECUTE
+- `chmod 777 <file-name>` - 4- Read, 2- Write, 1 - Execute
+- `sudo chown root text.txt` - chnage owner
+- `find . -perm 777 ` - will only show file/folder with size of 1kb
