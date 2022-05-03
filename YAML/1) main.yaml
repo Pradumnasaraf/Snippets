@@ -1,0 +1,27 @@
+# Key Value pair
+Name: "Pradumna Saraf"
+1: "This a list"
+
+---
+
+#lists
+- apple
+- mango
+- Banana
+- banana
+
+---
+# List of cities
+cities:
+  - new delhi
+  - patna
+  - gujrat 
+
+---
+
+cities: [new delhi, patna,gujrat]
+
+---
+
+{mango: "Yellow fruit", age: 56}
+...

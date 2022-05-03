@@ -1,0 +1,127 @@
+########### Sequence Data
+
+students: !!seq
+  - marks
+  - name
+  - roll
+
+# Some of the keys of the seq will be empty - Sparse Seq
+
+Sparse seq:
+  - hey
+  - how
+  - 
+  - null
+
+---
+
+########### Nested sequence
+
+-
+  - mango
+  - apple
+  - banana
+-
+  - marks
+  - roll
+
+# key: value pairs are called maps
+#!!map
+---
+####### Nested Mapping
+
+names: Pradumna
+role:
+  age: 22
+  job: student
+---
+
+# Same as
+names: Pradumna
+role: {  age: 22,job: student}
+
+########## Pair: keys may have duplicate !!pairs
+
+pair Example: !!pairs # Array of hashtables
+  - job: student
+  - job: mentor
+
+---
+# Same as
+pair Example: !!pairs [ job: student, job: mentor]
+
+---
+
+######### Set: will allow you to have unique value
+
+names: !!set
+  ? Pradumna
+  ? Mary
+  ? Liem
+  ? Ana
+  ? Eddie
+  ? Sara
+  ? Allie
+  ? Alyse
+
+
+########## Dictionary !!omap
+
+People: !!omap
+  - Pradumna:
+      name: Pradumna
+      age: 78
+      height: 1446
+  - Rahul:
+      name: Rahul
+      age: 20
+
+############# Reusing some properties using anchors @base
+likings of Person: &likes
+  fav fruits: mango
+  dislike: grapes
+
+Person1:
+  name: Pradumna Saraf
+  <<: *likes
+
+Person2:
+  name: Pradumna Saraf
+  <<: *likes
+  dislike: berries #Override
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
