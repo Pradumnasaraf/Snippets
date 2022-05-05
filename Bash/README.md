@@ -25,6 +25,7 @@
 - `cat <filename> <filename2> > <newfile-name>` - Merge both of file content in a single one.
 - `cat <file-name> | tr > <new-file-name>` - Translate the file.
 - `cut -c  1-2 <filename>` - cut the file with colum wise
+- `echo "Hello" >> <file-name>`
 
 
 
@@ -59,6 +60,7 @@
 
 
 ### System commands
+- `ps aux` - processes which are running
 - `df` - Check the capacity and storage details.
     - `m` - In megabyte)  or 
     - `hg` - (gigabyte).
@@ -87,6 +89,7 @@
 - `lsof` - list all the open file
 - `xdg-open <file-fath>` - open the folder (graphical window) of a file/folder with path.
 - `xdg-open .` - open the folder of the current directory.
+- `vi ~/.bashrc` - set your Alias
 
 ### Networking
 - `nslookup google.com` 
