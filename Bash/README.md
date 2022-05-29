@@ -90,6 +90,7 @@
 - `xdg-open <file-fath>` - open the folder (graphical window) of a file/folder with path.
 - `xdg-open .` - open the folder of the current directory.
 - `vi ~/.bashrc` - set your Alias
+- `echo -n 'username' | base64` 
 
 ### Networking
 - `nslookup google.com` 

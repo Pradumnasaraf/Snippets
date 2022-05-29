@@ -22,7 +22,9 @@ OR
 
 - `docker start <container ID>` - to start the stopped a container
 
-ad58a6b4c1b1
+- `docker run --name <name> <image-name>`- give a name to the conatiner.
+
+- `docker run -d -p <Hot port:container port> --name <name> <image-name>`- chnage name of current running container.
 
 - `docker ps -a` - Show all the stopped container.
 
@@ -39,9 +41,9 @@ ad58a6b4c1b1
 - `doc run <image-name> <command>` run the command in the container terminal
     - `doc run ubuntu:16.04 echo hey`
 
-- `doc rmi alpine -f` - remove the image
+- `doc rmi <image-name> -f` - remove the image
 
-- `doc run -d -p 8080:80 nginx` - port forwarding
+- `doc run -d -p 8080:80 nginx` - port forwarding (Biding port of host and container port )
 
 - `docker commit -m "message" <container-id> <name:tag>` - create a new image 
     - `docker commit -m "Added names.txt" d161deca74d2 name-ubuntu:1.01`
@@ -58,11 +60,14 @@ We can run by `doc run -it name-ubuntu:1.01
 
 ```
 Step 1 - create Dockerfile
-Step 2 - docker build -t myimage . (-t for tag)
+Step 2 - docker build -t myimage:1.0 <location> (-t for tag)
 Step 3 - docker run
 ```
 
 - `docker login` - 
+
+- `docker network ls` - list of network
+
 
 
 
