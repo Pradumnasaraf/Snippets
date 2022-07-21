@@ -8,3 +8,4 @@
 - `git reset [commit-hash]`
 - `git commit --amend --date="YYYY-MM-DD HH:MM:SS"` - rewrite the date and time
 - `git update-ref -d HEAD` - Reset all the commits
+- `git config --list`
