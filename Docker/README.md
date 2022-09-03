@@ -82,6 +82,12 @@ docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -v <p
 To make it read only so that when you add some files inside it the container and it will not get created on you local machine use `-v port:port:ro`
 
 
+- To override the and ENV of a docker container, here PORT
+```
+-e PORT=3500
+```
+
+
 
 
 
