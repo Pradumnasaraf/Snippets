@@ -86,6 +86,13 @@ To make it read only so that when you add some files inside it the container and
 ```
 -e PORT=3500
 ```
+or file
+
+```bash
+--env-file <path-to-env-file>
+Eg: --env-file ./.env
+```
+
 
 
 
