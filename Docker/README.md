@@ -68,6 +68,11 @@ Step 3 - docker run
 
 - `docker network ls` - list of network
 
+- 
+```
+docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p 4000:3000 -d --name docker-node docker-node
+```
+
 
 
 
