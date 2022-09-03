@@ -68,9 +68,12 @@ Step 3 - docker run
 
 - `docker network ls` - list of network
 
-- 
-```
-docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p 4000:3000 -d --name docker-node docker-node
+
+- To sync our local machine chnages with help of Docker volume (Bind mount)
+    - `- v` is use to define volume 
+
+```bash
+docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
 ```
 
 
