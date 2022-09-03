@@ -93,6 +93,20 @@ or file
 Eg: --env-file ./.env
 ```
 
+TO run docker compose file
+
+```bash
+docker compose up -d
+```
+
+```bash
+docker compose down
+```
+- When we run docker compose while with the existing image it will not create build the image even tho there is some changes. It runs the stale version.
+
+```
+docker compose up --build
+```
 
 
 
