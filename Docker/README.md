@@ -108,6 +108,11 @@ docker compose down
 docker compose up --build
 ```
 
+To override the existing config:
+
+```
+docker compose -f docker-compose.yaml  -f docker-compose.dev.yaml
+```
 
 
 
