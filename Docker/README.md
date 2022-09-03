@@ -79,6 +79,7 @@ docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p <l
 ```bash
 docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -v <path-to-file/folder-on-conatiner> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
 ```
+To make it read only so that when you add some files inside it the container and it will not get created on you local machine use `-v port:port:ro`
 
 
 
