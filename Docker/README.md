@@ -70,10 +70,14 @@ Step 3 - docker run
 
 
 - To sync our local machine chnages with help of Docker volume (Bind mount)
-    - `- v` is use to define volume 
+    - `- v` is use to define volume, aslo we give another `-v` flag to override the changes so that it will not chnage in container.
 
 ```bash
 docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
+```
+
+```bash
+docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -v <path-to-file/folder-on-conatiner> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
 ```
 
 
