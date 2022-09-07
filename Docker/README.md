@@ -110,12 +110,19 @@ docker compose up --build
 
 To override the existing config:
 
-```
+```bash
 docker compose -f docker-compose.yaml  -f docker-compose.dev.yaml
 ```
 
+- To list all the networks
 
+```bash
+docker network ls
+```
 
+To inspect a particular network
 
-
+```bash
+docker inspect <network-id>
+```
 
