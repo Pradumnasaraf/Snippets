@@ -33,7 +33,7 @@ GET *
 flushall
 ```
 
--To set the Keys with expiration
+- To set the Keys with expiration
 
 ```bash
 SET name pradumna EX 10
@@ -43,4 +43,14 @@ SET name pradumna EX 10
 ```
 ttl <key> <time to live in seconds>
 ```
+or
+```
 
+setex <key-name> <time-of-expiration-sec> <value>
+```
+
+- or set to existing keys by
+
+```
+ttl <key> <time to live in seconds>
+```
