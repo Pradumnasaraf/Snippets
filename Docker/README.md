@@ -69,8 +69,60 @@ Step 3 - docker run
 - `docker network ls` - list of network
 
 
+- To sync our local machine chnages with help of Docker volume (Bind mount)
+    - `- v` is use to define volume, aslo we give another `-v` flag to override the changes so that it will not chnage in container.
+
+```bash
+docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
+```
+
+```bash
+docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -v <path-to-file/folder-on-conatiner> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
+```
+To make it read only so that when you add some files inside it the container and it will not get created on you local machine use `-v port:port:ro`
 
 
+- To override the and ENV of a docker container, here PORT
+```
+-e PORT=3500
+```
+or file
 
+```bash
+--env-file <path-to-env-file>
+Eg: --env-file ./.env
+```
 
+TO run docker compose file
+
+```bash
+docker compose up -d
+```
+
+```bash
+docker compose down
+```
+- When we run docker compose while with the existing image it will not create build the image even tho there is some changes. It runs the stale version.
+
+```
+docker compose up --build
+```
+
+To override the existing config:
+
+```bash
+docker compose -f docker-compose.yaml  -f docker-compose.dev.yaml
+```
+
+- To list all the networks
+
+```bash
+docker network ls
+```
+
+To inspect a particular network
+
+```bash
+docker inspect <network-id>
+```
 

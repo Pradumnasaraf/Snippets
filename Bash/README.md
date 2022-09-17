@@ -127,3 +127,4 @@ histroy
 - `echo "google.com" || echo "pingfacebook.com"` 
 - `rm -r !(file.txt)`
 
+- `printevnv` - to print all th env.
