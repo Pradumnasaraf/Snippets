@@ -54,3 +54,19 @@ setex <key-name> <time-of-expiration-sec> <value>
 ```
 ttl <key> <time to live in seconds>
 ```
+
+- To push the elment at the left side of the array (It will create if it dosen't exists)
+
+```bash
+lpush <arrayname> <value to push>
+```
+to right:
+
+```bash
+rpush <arrayname> <value to push>
+```
+- to get all the value from the array
+
+```
+lrange friends <staring index> <ending indxex>
+```
