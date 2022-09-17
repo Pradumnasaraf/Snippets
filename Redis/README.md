@@ -103,8 +103,30 @@ SMEMEBERS <set-key>
 
 ```
 SREM <set-key> <value>
+SREM color red
 ```
 
+> HASHES
+
+- To add a key in a set
+
+```bash
+HSET <hash-key> <propery name> <value>
+HSET person name ron
+```
+- To get a key value pair 
+
+```
+HGET <hash-key> <propery name>
+HGET person name
+```
+
+- To get all the properties of a set
+
+```
+HGETALL <hash-key>
+HGETALL person
+```
 
 
 
