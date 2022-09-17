@@ -128,5 +128,17 @@ HGETALL <hash-key>
 HGETALL person
 ```
 
+- To delete a property in a set
+
+```
+HGETALL <hash-key> <property name>
+HDEL pseron age
+```
+
+- To check propert exits of not
+
+```
+HEXISTS <hash-key> <property name>
+```
 
 
