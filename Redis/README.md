@@ -54,11 +54,13 @@ setex <key-name> <time-of-expiration-sec> <value>
 ```
 ttl <key> <time to live in seconds>
 ```
+> ARRAY
 
 - To push the elment at the left side of the array (It will create if it dosen't exists)
 
 ```bash
 lpush <arrayname> <value to push>
+lpush name jon
 ```
 to right:
 
@@ -68,5 +70,41 @@ rpush <arrayname> <value to push>
 - to get all the value from the array
 
 ```
-lrange friends <staring index> <ending indxex>
+lrange <keyname> <staring index> <ending indxex>
+lrange name 0 -1
 ```
+
+- To remove 1st item of array
+
+```
+LPOP friends
+```
+
+- To remove last item of array
+
+```
+RPOP friends
+```
+
+> SETS
+
+- To add elemets in the set
+
+```
+SADD <set-key> "value"
+```
+
+- To get all the elements from the set
+
+```
+SMEMEBERS <set-key>
+```
+- TO remove an element from a set
+
+```
+SREM <set-key> <value>
+```
+
+
+
+
