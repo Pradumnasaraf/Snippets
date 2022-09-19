@@ -36,6 +36,12 @@ OR
 docker top <container-name/id>
 ```
 
+- To check stats of running container
+
+```
+docker container stats
+```
+
 - `docker logs <container ID>` - logs of the container.
         - ``docker logs --since 5s <container ID>`  - logs of last 5s
 
