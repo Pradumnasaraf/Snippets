@@ -30,6 +30,12 @@ OR
 
 - `docker rm <container ID>` - remove the container.
 
+- To check the running processes inside a container
+
+```
+docker top <container-name/id>
+```
+
 - `docker logs <container ID>` - logs of the container.
         - ``docker logs --since 5s <container ID>`  - logs of last 5s
 
