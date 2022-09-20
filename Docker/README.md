@@ -148,7 +148,7 @@ docker container port <Container-name>
 docker inspect --format "{{.NetworkSettings.IPAddress}}" <conatiner-name>
 ```
 
--To inspect which conatiners are attached to the a particalr newtork
+- To inspect which conatiners are attached to the a particalr newtork
 
 ```
 docker network inspect <network-name>
