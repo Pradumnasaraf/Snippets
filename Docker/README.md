@@ -166,3 +166,16 @@ docker network create <network-name>
 ```
 docker run --network <network-name> <image-name>
 ```
+
+- To connect a conatanier to a another network
+
+```
+docker connect network <network-name> <conatiner-name>
+```
+
+- To disconnect a conatanier from another network
+
+```
+docker disconnect network <network-name> <conatiner-name>
+```
+
