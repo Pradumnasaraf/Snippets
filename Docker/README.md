@@ -138,3 +138,26 @@ To inspect a particular network
 docker inspect <network-id>
 ```
 
+to check which port are exposed in a container
+
+```bash
+docker container port <Container-name>
+````
+
+```
+docker inspect --format "{{.NetworkSettings.IPAddress}}" <conatiner-name>
+```
+
+-To inspect which conatiners are attached to the a particalr newtork
+
+```
+docker network inspect <network-name>
+docker network inspect bridge
+```
+
+- To create a network (It will create a bridge)
+
+```
+docker network create <network-name>
+```
+
