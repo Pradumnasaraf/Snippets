@@ -161,3 +161,8 @@ docker network inspect bridge
 docker network create <network-name>
 ```
 
+- To run a container on a certian network/own careted network 
+
+```
+docker run --network <network-name> <image-name>
+```
