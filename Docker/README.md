@@ -179,3 +179,21 @@ docker connect network <network-name> <conatiner-name>
 docker disconnect network <network-name> <conatiner-name>
 ```
 
+- Check the image layers formation
+
+```bash 
+docker history <image-name>
+```
+
+- Inspect the meta data of an image
+
+```
+docker inspect <image-name>
+```
+
+- To create a our own tag with some image
+
+```
+docker image tag <image-name with tag> <new-image name with tag>
+docker image tag nginx pradumna/nginx:hell
+
