@@ -74,6 +74,7 @@ Step 3 - docker run
 
 ```bash
 docker run -v <path-on-folder-loacl-machine>:<path-to-folder-on-container> -p <local-machine-port>:<container-port> -d --name docker-node docker-node
+docker
 ```
 
 ```bash
