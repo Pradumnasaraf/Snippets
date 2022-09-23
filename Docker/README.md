@@ -195,5 +195,8 @@ docker inspect <image-name>
 
 ```
 docker image tag <image-name with tag> <new-image name with tag>
-docker image tag nginx pradumna/nginx:hell
+docker image tag nginx pradumna/nginx:hello
+```
+
+
 
