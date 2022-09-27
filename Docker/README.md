@@ -30,6 +30,18 @@ OR
 
 - `docker rm <container ID>` - remove the container.
 
+- To check the running processes inside a container
+
+```
+docker top <container-name/id>
+```
+
+- To check stats of running container
+
+```
+docker container stats
+```
+
 - `docker logs <container ID>` - logs of the container.
         - ``docker logs --since 5s <container ID>`  - logs of last 5s
 
@@ -126,4 +138,66 @@ To inspect a particular network
 ```bash
 docker inspect <network-id>
 ```
+
+to check which port are exposed in a container
+
+```bash
+docker container port <Container-name>
+````
+
+```
+docker inspect --format "{{.NetworkSettings.IPAddress}}" <conatiner-name>
+```
+
+- To inspect which conatiners are attached to the a particalr newtork
+
+```
+docker network inspect <network-name>
+docker network inspect bridge
+```
+
+- To create a network (It will create a bridge)
+
+```
+docker network create <network-name>
+```
+
+- To run a container on a certian network/own careted network 
+
+```
+docker run --network <network-name> <image-name>
+```
+
+- To connect a conatanier to a another network
+
+```
+docker connect network <network-name> <conatiner-name>
+```
+
+- To disconnect a conatanier from another network
+
+```
+docker disconnect network <network-name> <conatiner-name>
+```
+
+- Check the image layers formation
+
+```bash 
+docker history <image-name>
+```
+
+- Inspect the meta data of an image
+
+```
+docker inspect <image-name>
+```
+
+- To create a our own tag with some image
+
+```
+docker image tag <image-name with tag> <new-image name with tag>
+docker image tag nginx pradumna/nginx:hello
+```
+
+
 
