@@ -199,5 +199,17 @@ docker image tag <image-name with tag> <new-image name with tag>
 docker image tag nginx pradumna/nginx:hello
 ```
 
+> DOCKER SWARM
 
+- To initalize swarm
+
+```bash
+docker swarm init
+```
+
+- Check node
+
+```bash
+docker node ls
+```
 
