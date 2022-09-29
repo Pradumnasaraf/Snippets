@@ -59,6 +59,16 @@
     - `.-size +1k` - will only show file/folder with size of 1kb
 
 
+### The 'show arguments' Operation
+
+| Command | Output no. of Arguments |
+| --- | --- |
+| $* | All arguments |
+| $@ | All arguments, starting from first |
+| $1 | First argument |
+| $_ | Last argument of the previous command |
+
+
 ### System commands
 - `ps aux` - processes which are running
 - `df` - Check the capacity and storage details.
