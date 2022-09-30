@@ -207,9 +207,22 @@ docker image tag nginx pradumna/nginx:hello
 docker swarm init
 ```
 
-- Check node
+- Check all the node available
 
 ```bash
 docker node ls
 ```
+
+- To add a node as a manager
+
+```
+docker node update --role manager <node-name>
+```
+
+- To get all the containers running on different node 
+
+```
+docker service ps <service-name/id>
+```
+
 
