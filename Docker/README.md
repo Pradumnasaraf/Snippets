@@ -233,6 +233,12 @@ docker service ps <service-name/id>
 docker stack deploy -c <file-name.yaml> <stackname>
 ```
 
+- To remove running stack
+
+```
+docker stack rm <stack name>
+```
+
 - To check list of stacks running
 
 ```
