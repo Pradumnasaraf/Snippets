@@ -225,4 +225,32 @@ docker node update --role manager <node-name>
 docker service ps <service-name/id>
 ```
 
+> DOCKER STACK
+
+- To deploy a stack file
+
+```bash
+docker stack deploy -c <file-name.yaml> <stackname>
+```
+
+- To check list of stacks running
+
+```
+docker stack ls
+```
+
+** STACK -> SERVICES -> TASKS -> CONTAINERS **
+
+- To check which services are running inside a staacks
+
+```
+docker stack services <stack name>
+```
+
+- To check taks are running inside a stack
+
+```
+socker stack ps <stack name> 
+```
+
 
