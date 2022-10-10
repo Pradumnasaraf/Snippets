@@ -256,7 +256,7 @@ docker stack services <stack name>
 - To check taks are running inside a stack
 
 ```
-socker stack ps <stack name> 
+docker stack ps <stack name> 
 ```
 
 
