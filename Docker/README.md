@@ -215,15 +215,32 @@ docker node ls
 
 - To add a node as a manager
 
-```
+```bash
 docker node update --role manager <node-name>
 ```
 
-- To get all the containers running on different node 
+- To create an overlay network
+
+```bash
+docker network create -d overlay backend
+```
+
+- To craete a service
+
+    - `--name` - to give a service name
+    - `--replicas` - to define how many running instance of the same image.
 
 ```
+docker service create --name vote --replicas 2 nginx
+```
+
+- To get all task containers running on different node 
+
+```bash
 docker service ps <service-name/id>
 ```
+
+
 
 > DOCKER STACK
 
