@@ -199,7 +199,7 @@ docker image tag <image-name with tag> <new-image name with tag>
 docker image tag nginx pradumna/nginx:hello
 ```
 
-> DOCKER SWARM
+> DOCKER SWARM and SERVICE
 
 - To initalize swarm
 
@@ -229,9 +229,10 @@ docker network create -d overlay backend
 
     - `--name` - to give a service name
     - `--replicas` - to define how many running instance of the same image.
+    - `-p` - for port forwarding
 
 ```
-docker service create --name vote --replicas 2 nginx
+docker service create -p 8080:80 --name vote --replicas 2 nginx
 ```
 
 - To get all task containers running on different node 
@@ -240,7 +241,30 @@ docker service create --name vote --replicas 2 nginx
 docker service ps <service-name/id>
 ```
 
+> SERVICE UPDATE
 
+- To scale up the service (i.e increasing the no of replicas)
+
+```bash
+docker service scale <service name>=<no to scale>
+docker service scale mynginx=5
+```
+
+- To update the image in running service
+
+```bash
+docker service update --image <updated image> <service name>
+docker service update --image mynginx:1.13.6  web
+```
+
+- To update the port
+
+We ca't direclty update the port We have to add and remove the ports
+
+```
+docker service update --publish-rm 8080 --publish-add 808180 <service name>
+docker service update --publish-rm 8080 --publish-add 808180 mynginx
+```
 
 > DOCKER STACK
 
@@ -262,7 +286,7 @@ docker stack rm <stack name>
 docker stack ls
 ```
 
-** STACK -> SERVICES -> TASKS -> CONTAINERS **
+**STACK -> SERVICES -> TASKS -> CONTAINERS**
 
 - To check which services are running inside a staacks
 
