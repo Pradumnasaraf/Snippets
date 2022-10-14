@@ -300,4 +300,8 @@ docker stack services <stack name>
 docker stack ps <stack name> 
 ```
 
+> Registry
 
+```
+127.0.0.0:5000/v2/_catalog
+```
