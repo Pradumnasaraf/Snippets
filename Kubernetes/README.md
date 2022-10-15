@@ -1,14 +1,29 @@
-- `kubectl version` - Check the version
-- `kubectl version --output=yaml` - Check the version in formatted way
-- `kubectl config view` - info about the cluster
+> MINIKUBE
 - `minikube start` - Creating a cluster
 - `minikube status` - Running Status of cluster
 - `minikube dashboard` - 
+- `minikube docker-env` -
+- `minikube SSH` -
+
+> KUBECTL
+
+- To check the version:
+
+```bash
+kubectl version
+kubectl version --output=yaml
+```
+- To run a Pod
+
+```
+kubectl run <pod name> --image <image name>
+kubectl run myngix --image nginx
+```
+
+- `kubectl config view` - info about the cluster
 - `kubectl get nodes` - Check the running nodes.
 - `kubectl get pods` - Check the pods running.
 - `kubectl get services` - Check the running services.
-- `minikube docker-env` -
-- `minikube SSH` -
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
 - `kubectl get deployment` - get all the deployments
