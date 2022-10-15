@@ -15,14 +15,36 @@ kubectl version --output=yaml
 ```
 - To run a Pod
 
-```
+```bash
 kubectl run <pod name> --image <image name>
 kubectl run myngix --image nginx
 ```
 
+- To check all running services, pods, etc.
+
+```bash
+kubectl get all
+```
+
+- To check all the running services
+
+```bash
+kubectl get services
+```
+
+- To check all the running pods
+
+```
+kubectl get pods
+```
+
+- To check all the running node.
+
+```
+kubectl get nodes
+```
+
 - `kubectl config view` - info about the cluster
-- `kubectl get nodes` - Check the running nodes.
-- `kubectl get pods` - Check the pods running.
 - `kubectl get services` - Check the running services.
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
