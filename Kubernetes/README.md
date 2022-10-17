@@ -19,6 +19,13 @@ kubectl run <pod name> --image <image name>
 kubectl run myngix --image nginx
 ```
 
+- To create a deployment
+
+```bash
+kubectl create deployment <name> --image <image name>
+kubectl create deployment mynginx --image nginx
+```
+
 - To check all running services, pods, etc.
 
 ```bash
