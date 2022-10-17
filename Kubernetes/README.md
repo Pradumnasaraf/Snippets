@@ -6,12 +6,20 @@
 
 > KUBECTL
 
+
 - To check the version:
 
 ```bash
 kubectl version
 kubectl version --output=yaml
 ```
+
+- To check info about the cluster
+
+```bash
+kubectl config view
+```
+
 - To run a Pod
 
 ```bash
@@ -106,8 +114,6 @@ kubectl get pods -w
 
 
 
-
-- `kubectl config view` - info about the cluster
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
 - `kubectl edit deployment ngnix` - Edit the config file.
