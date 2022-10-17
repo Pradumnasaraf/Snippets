@@ -26,6 +26,13 @@ kubectl create deployment <name> --image <image name>
 kubectl create deployment mynginx --image nginx
 ```
 
+- To sacle the deployment (increase replicas)
+
+```
+kubectl scale deployment <deployment name> --replicas <no of replicas>
+kubectl scale deployment mynginx --replicas 2
+```
+
 - To check all running services, pods, etc.
 
 ```bash
