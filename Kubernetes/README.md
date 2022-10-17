@@ -49,7 +49,23 @@ kubectl get nodes
 kubectl delete deployment <deployment-name>
 ```
 
+- To delete the pods 
 
+```bash
+kubectl delete pod <pod-name>
+```
+
+- To get logs of a pod
+
+```bash
+kubectl logs <pod-name>
+```
+
+- Get a deep details about the pod 
+
+```
+kube describe pod <pod -name>
+```
 
 
 - `kubectl config view` - info about the cluster
@@ -58,7 +74,6 @@ kubectl delete deployment <deployment-name>
 - `kubectl get deployment` - get all the deployments
 - `kubectl get replicaset` - check pods replicas
 - `kubectl edit deployment ngnix` - Edit the config file.
-- `kubectl logs <pod-name>` - Get logs of a pod.
 - `kubectl describe pod <pod-name>` - give state chnages of a pod.
 - `kubectl exec -it <pod-name> -- bin/bash` - open the shell for that pod
 - `kubectl get pod -o wide` - get more details about the pods
