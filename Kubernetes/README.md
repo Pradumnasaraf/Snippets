@@ -39,7 +39,7 @@ kubectl get pods
 
 ```bash
 // with extra details
-kube get pods -o wide
+kubectl get pods -o wide
 ```
 
 - To check all the running node.
