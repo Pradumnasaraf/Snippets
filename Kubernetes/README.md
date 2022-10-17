@@ -37,10 +37,27 @@ kubectl get services
 kubectl get pods
 ```
 
+```bash
+// with extra details
+kube get pods -o wide
+```
+
 - To check all the running node.
 
 ```bash
 kubectl get nodes
+```
+
+- To check all the replicaset
+
+```bash
+kubectl get replicaset
+```
+
+- To check all the namespaces
+
+```bash
+kubectl get namespaces
 ```
 
 - To delete the deployment
@@ -61,24 +78,22 @@ kubectl delete pod <pod-name>
 kubectl logs <pod-name>
 ```
 
-- Get a deep details about the pod 
+- Get a deep details/state chnages about a pod 
 
-```
+```bash
 kube describe pod <pod -name>
 ```
+
+
 
 
 - `kubectl config view` - info about the cluster
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
-- `kubectl get deployment` - get all the deployments
-- `kubectl get replicaset` - check pods replicas
 - `kubectl edit deployment ngnix` - Edit the config file.
-- `kubectl describe pod <pod-name>` - give state chnages of a pod.
 - `kubectl exec -it <pod-name> -- bin/bash` - open the shell for that pod
 - `kubectl get pod -o wide` - get more details about the pods
 
-- `kubectl get namespaces` - get all the name spaces
 - `kubectl create namespace <insert-namespace-name-here>` - create a namespace
 - `kubectl apply -f <config file name> --namespace=<namespace name>`
     - Eg: `kub apply -f mongo-configmap.yaml --namespace=my-namespace`
