@@ -84,6 +84,12 @@ kubectl logs <pod-name>
 kube describe pod <pod -name>
 ```
 
+- To watch the pods (watch refresh every few seconds)
+
+```bash
+kubectl get pods -w
+```
+
 
 
 
