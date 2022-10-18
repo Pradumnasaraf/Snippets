@@ -112,6 +112,12 @@ kube describe pod <pod -name>
 kubectl get pods -w
 ```
 
+- To check the cluster are avilable
+
+```
+kube config get-contexts
+```
+
 
 
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
