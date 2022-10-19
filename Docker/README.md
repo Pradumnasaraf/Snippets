@@ -1,6 +1,19 @@
-- `docker run hello-image` - run the container, hello-world is image here.
 
-- `docker images` - Check all the images.
+### Basic Commands
+
+- To check Docker vesrion
+
+```bash
+docker version
+```
+
+- To check all the images available
+
+```bash
+docker images
+```
+
+- `docker run hello-image` - run the container, hello-world is image here.
 
 - `docker pull <image name>` - downlaod image
 
