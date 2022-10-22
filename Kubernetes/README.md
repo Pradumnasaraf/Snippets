@@ -47,6 +47,12 @@ kubectl scale deployment mynginx --replicas 2
 kubectl get all
 ```
 
+- To get the internal components running
+
+```bash
+kubectl get all -A 
+```
+
 - To check all the running services
 
 ```bash
