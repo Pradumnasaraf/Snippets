@@ -113,6 +113,13 @@ kubectl delete pod <pod-name>
 kubectl logs <pod-name>
 ```
 
+- To get inside the pod
+
+```
+kubectl exec -it <pod name> -- sh
+kubectl exec -it nginx -- sh
+```
+
 - Get a deep details/state chnages about a pod 
 
 ```bash
