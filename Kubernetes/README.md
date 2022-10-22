@@ -50,7 +50,8 @@ kubectl get all
 - To get the internal components running
 
 ```bash
-kubectl get all -A 
+kubectl get pods -A 
+kubectl get pods -A -owide
 ```
 
 - To check all the running services
