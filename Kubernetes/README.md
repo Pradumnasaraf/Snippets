@@ -89,6 +89,12 @@ kubectl get replicaset
 kubectl get namespaces
 ```
 
+- To get all the API resources
+
+```
+kubectl api-resources
+```
+
 - To delete the deployment
 
 ```bash
@@ -114,7 +120,6 @@ kube describe pod <pod -name>
 ```
 
 - To watch the pods (watch refresh every few seconds)
-
 ```bash
 kubectl get pods -w
 ```
@@ -123,6 +128,19 @@ kubectl get pods -w
 
 ```
 kube config get-contexts
+```
+
+- We can create namespace by
+
+```bash
+kubectl create namespace <name>
+kubectl create namespace dev
+```
+
+- To do a dry nun and get the output as Yaml
+
+```bash
+kubectl create namespace test-name --dry-run=client -oyaml
 ```
 
 
