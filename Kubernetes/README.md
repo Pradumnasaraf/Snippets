@@ -113,6 +113,13 @@ kubectl delete pod <pod-name>
 kubectl logs <pod-name>
 ```
 
+- To check logs of a container inside a pod.
+
+```bash
+kube exec -it <pod-name> -c <container-name> -- curl localhost
+kube exec -it multi-container -c nginx-container -- curl localhost
+```
+
 - To get inside the pod
 
 ```
