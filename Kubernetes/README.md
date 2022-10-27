@@ -159,6 +159,11 @@ kubectl create namespace dev
 kubectl create namespace test-name --dry-run=client -oyaml
 ```
 
+- To edit the deployment (deployment file)
+
+```bash
+kubectl edit deployment <deployment name>
+```
 
 
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
