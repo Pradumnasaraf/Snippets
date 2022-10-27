@@ -119,6 +119,7 @@ kubectl logs <pod-name>
 kube exec -it <pod-name> -c <container-name> -- <bash command>
 kube exec -it multi-container -c nginx-container -- curl localhost
 kube exec -it multi-container -c nginx-container -- sh
+kubectl logs multi-container -c nginx-container
 ```
 
 - To get inside the pod
