@@ -85,25 +85,24 @@ docker exec -it <container ID/name> bash/sh
 docker port <image name>
 ```
 
+- Check all the stopped container
 
+```bash
+docker ps -a
+```
 
+- Check logs of a container
 
+```bash
+docker logs <container ID/name>
+```
 
+- Delete all the stopped conatiner
 
-- `docker ps -a` - Show all the stopped container.
+```bash
+docker container prune -f
+```
 
-- `docker rm <container ID>` - remove the container.
-
-
-
-
-
-
-
-- `docker logs <container ID>` - logs of the container.
-        - ``docker logs --since 5s <container ID>`  - logs of last 5s
-
-- `docker container prune -f` - delete all the stoped container.
 
 
 - `docker run -d <image-name>` - run the container in the background in the dattached mode.
