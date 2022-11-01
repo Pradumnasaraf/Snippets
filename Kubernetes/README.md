@@ -165,6 +165,10 @@ kubectl create namespace test-name --dry-run=client -oyaml
 kubectl edit deployment <deployment name>
 ```
 
+- To delete all the pods
+```
+kubectl delete pods --all
+```
 
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
