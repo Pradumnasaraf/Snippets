@@ -27,7 +27,17 @@ docker run <image name>
 
 > **CONTAINER SPECIFIC COMMANDS**
 
-<br>
+- To stop a running conatiner
+
+```bash
+docker stop <container ID/name>
+``` 
+
+- To resume a stopped conatiner
+
+```bash
+docker start <container ID/name>
+```
 
 - To check the running processes inside a container.
 
@@ -64,10 +74,14 @@ docker container ls
 docker exec -it <container ID/name> bash/sh
 ```
 
+- To check which ports has been exposed and forwarded
 
-- `docker stop <container ID>` - to stop a container
+```bash
+docker port <image name>
+```
 
-- `docker start <container ID>` - to start the stopped a container
+
+
 
 - `docker run --name <name> <image-name>`- give a name to the conatiner.
 
