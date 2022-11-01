@@ -32,7 +32,7 @@ docker run <image name>
 //Eg: docker run nginx
 ```
 
-### DCONTAINER SPECIFIC COMMANDS**
+### DCONTAINER SPECIFIC COMMANDS
 
 - To stop a running conatiner
 
@@ -104,6 +104,10 @@ docker logs <container ID/name>
 ```bash
 docker container prune -f
 ```
+- Auto cleanup when t
+
+```
+ docker container run —rm
 
 ### Docker Network
 
