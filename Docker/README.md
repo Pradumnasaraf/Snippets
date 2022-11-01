@@ -25,8 +25,6 @@ docker run <image name>
 //Eg: docker run nginx
 ```
 
-
-
 > **CONTAINER SPECIFIC COMMANDS**
 
 <br>
@@ -43,28 +41,29 @@ docker top <container name/id>
 docker stats <container name/id>
 ```
 
-- To check the config and info of a conatiner.
+- Check the config and info of a conatiner.
 
 ```bash
 docker stats <container name/id>
 //Eg: docker inspect mynginx
 ```
 
+- Check all the container running.
 
+```bash
+docker ps
+or
+docker container ls
+```
 
+- To start and interactive session and get inide the container.
 
+  - NOTE: every image does not support `bash` so we use `sh`
 
-- `docker run -it <os-name>` - run interactive environment
+```
+docker exec -it <container ID/name> bash/sh
+```
 
-  - Eg: `docker run -it ubuntu:16.04`
-
-- `docker ps` - check the current running containers.
-
-OR
-
-- `docker container ls` - check the current running containers.
-
-- `docker exec -it <container ID> bash` - Attach a bash shell to a container with the container ID.
 
 - `docker stop <container ID>` - to stop a container
 
