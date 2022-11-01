@@ -1,6 +1,3 @@
-
-### Basic Commands
-
 - To check Docker vesrion
 
 ```bash
@@ -12,6 +9,22 @@ docker version
 ```bash
 docker images
 ```
+
+> CONTAINER SPECFIC COMMANDS
+
+- To check the running processes inside a container
+
+```bash
+docker top <container name/id>
+```
+
+- To check stats of running container
+
+```bash
+docker stats <container name/id>
+```
+
+
 
 - `docker run hello-image` - run the container, hello-world is image here.
 
@@ -43,17 +56,11 @@ OR
 
 - `docker rm <container ID>` - remove the container.
 
-- To check the running processes inside a container
 
-```
-docker top <container-name/id>
-```
 
-- To check stats of running container
 
-```
-docker container stats
-```
+
+
 
 - `docker logs <container ID>` - logs of the container.
         - ``docker logs --since 5s <container ID>`  - logs of last 5s
