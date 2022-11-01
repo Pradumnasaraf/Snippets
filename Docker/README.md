@@ -103,12 +103,19 @@ docker logs <container ID/name>
 docker container prune -f
 ```
 
+### Docker Network
+
+- Check list of avilable networks.
+
+```
+- docker network ls
+```
 
 
-- `docker run -d <image-name>` - run the container in the background in the dattached mode.
 
-- `doc run <image-name> <command>` run the command in the container terminal
-    - `doc run ubuntu:16.04 echo hey`
+
+
+
 
 - `doc rmi <image-name> -f` - remove the image
 
@@ -135,7 +142,7 @@ Step 3 - docker run
 
 - `docker login` - 
 
-- `docker network ls` - list of network
+
 
 
 - To sync our local machine chnages with help of Docker volume (Bind mount)
@@ -362,3 +369,13 @@ docker stack ps <stack name>
 ```
 127.0.0.0:5000/v2/_catalog
 ```
+
+### Tips and Short hands
+
+- Run the command with the container creation
+
+```bash
+doc run <image-name> <command>
+// Eg: `doc run ubuntu:16.04 echo hey`
+```
+
