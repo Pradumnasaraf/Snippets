@@ -1,6 +1,6 @@
 - To check Docker vesrion
 
-```bash
+```
 docker version
 ```
 
@@ -9,19 +9,29 @@ docker version
 ```bash
 docker images
 ```
+<br>
 
-> CONTAINER SPECFIC COMMANDS
+> **CONTAINER SPECFIC COMMANDS**
 
-- To check the running processes inside a container
+<br>
+
+- To check the running processes inside a container.
 
 ```bash
 docker top <container name/id>
 ```
 
-- To check stats of running container
+- To check stats of running container.
 
 ```bash
 docker stats <container name/id>
+```
+
+- To check the config and info of a conatiner.
+
+```bash
+docker stats <container name/id>
+//Eg: docker inspect mynginx
 ```
 
 
