@@ -9,9 +9,25 @@ docker version
 ```bash
 docker images
 ```
-<br>
 
-> **CONTAINER SPECFIC COMMANDS**
+- Pull/Downlaod the image from the Docker registry to local machine.
+
+```bash
+docker pull <image name>
+//Eg: docker run nginx
+```
+
+- To run an container (It will 1st pull the image if not present in the local sytem)
+  - NOTE: When we just provide the name of the image it will pull the lastest one, i.e `nginx:latest`. We can also specify the version `nginx:1.14`
+
+```bash
+docker run <image name>
+//Eg: docker run nginx
+```
+
+
+
+> **CONTAINER SPECIFIC COMMANDS**
 
 <br>
 
@@ -36,11 +52,7 @@ docker stats <container name/id>
 
 
 
-- `docker run hello-image` - run the container, hello-world is image here.
 
-- `docker pull <image name>` - downlaod image
-
-  - Eg: `docker pull ubuntu:16.04`
 
 - `docker run -it <os-name>` - run interactive environment
 
