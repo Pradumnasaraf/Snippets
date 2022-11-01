@@ -1,3 +1,5 @@
+### Docker Basic
+
 - To check Docker vesrion
 
 ```
@@ -30,7 +32,7 @@ docker run <image name>
 //Eg: docker run nginx
 ```
 
-> **CONTAINER SPECIFIC COMMANDS**
+### DCONTAINER SPECIFIC COMMANDS**
 
 - To stop a running conatiner
 
@@ -138,18 +140,11 @@ docker rmi $(docker images -q)
 docker inspect  <image name/id>
 ```
 
-- Creating our Own image and container.
+### Docker Volume
 
-```
-Step 1 - create Dockerfile
-Step 2 - docker build -t myimage:1.0 <location> (-t for tag)
-Step 3 - docker run
-```
-
-- `docker login` - 
-
-
-
+- Create bind mount
+  - Help to sync our local files with help of Docker container.
+  
 
 - To sync our local machine chnages with help of Docker volume (Bind mount)
     - `- v` is use to define volume, aslo we give another `-v` flag to override the changes so that it will not chnage in container.
@@ -385,3 +380,11 @@ doc run <image-name> <command>
 // Eg: `doc run ubuntu:16.04 echo hey`
 ```
 
+
+- Creating our Own image and container.
+
+```
+Step 1 - create Dockerfile
+Step 2 - docker build -t myimage:1.0 <location> (-t for tag)
+Step 3 - docker run
+```
