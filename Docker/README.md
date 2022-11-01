@@ -107,30 +107,36 @@ docker container prune -f
 
 - Check list of avilable networks.
 
+```bash
+docker network ls
 ```
-- docker network ls
+
+- Inspect a network components
+
+```bash
+docker network inspect <network name>
 ```
 
 
+### Docker Images
 
+- Remove an image
 
+```bash
+docker rmi <image name> -f
+```
 
+- Remove all the images at once
 
+```bash
+docker rmi $(docker images -q)
+```
 
-- `doc rmi <image-name> -f` - remove the image
+- To inspect an image layers and other info
 
-- `doc run -d -p 8080:80 nginx` - port forwarding (Biding port of host and container port )
-
-- `docker commit -m "message" <container-id> <name:tag>` - create a new image 
-    - `docker commit -m "Added names.txt" d161deca74d2 name-ubuntu:1.01`
-
-We can run by `doc run -it name-ubuntu:1.01
-
-- `docker images -q` - Returns all the image ID's
-
-- `docker rmi $(docker images -q) ` - Remove all the images at once
-
-- `docker inspect  <image>` - inspect and get details about that image.
+```bash
+docker inspect  <image name/id>
+```
 
 - Creating our Own image and container.
 
