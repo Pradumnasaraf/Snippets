@@ -1,85 +1,154 @@
-- `docker run hello-image` - run the container, hello-world is image here.
+### Docker Basic
 
-- `docker images` - Check all the images.
-
-- `docker pull <image name>` - downlaod image
-
-  - Eg: `docker pull ubuntu:16.04`
-
-- `docker run -it <os-name>` - run interactive environment
-
-  - Eg: `docker run -it ubuntu:16.04`
-
-- `docker ps` - check the current running containers.
-
-OR
-
-- `docker container ls` - check the current running containers.
-
-- `docker exec -it <container ID> bash` - Attach a bash shell to a container with the container ID.
-
-- `docker stop <container ID>` - to stop a container
-
-- `docker start <container ID>` - to start the stopped a container
-
-- `docker run --name <name> <image-name>`- give a name to the conatiner.
-
-- `docker run -d -p <Hot port:container port> --name <name> <image-name>`- chnage name of current running container.
-
-- `docker ps -a` - Show all the stopped container.
-
-- `docker rm <container ID>` - remove the container.
-
-- To check the running processes inside a container
+- To check Docker vesrion
 
 ```
-docker top <container-name/id>
+docker version
 ```
 
-- To check stats of running container
+- To check all the images available
 
-```
-docker container stats
-```
-
-- `docker logs <container ID>` - logs of the container.
-        - ``docker logs --since 5s <container ID>`  - logs of last 5s
-
-- `docker container prune -f` - delete all the stoped container.
-
-
-- `docker run -d <image-name>` - run the container in the background in the dattached mode.
-
-- `doc run <image-name> <command>` run the command in the container terminal
-    - `doc run ubuntu:16.04 echo hey`
-
-- `doc rmi <image-name> -f` - remove the image
-
-- `doc run -d -p 8080:80 nginx` - port forwarding (Biding port of host and container port )
-
-- `docker commit -m "message" <container-id> <name:tag>` - create a new image 
-    - `docker commit -m "Added names.txt" d161deca74d2 name-ubuntu:1.01`
-
-We can run by `doc run -it name-ubuntu:1.01
-
-- `docker images -q` - Returns all the image ID's
-
-- `docker rmi $(docker images -q) ` - Remove all the images at once
-
-- `docker inspect  <image>` - inspect and get details about that image.
-
-- Creating our Own image and container.
-
-```
-Step 1 - create Dockerfile
-Step 2 - docker build -t myimage:1.0 <location> (-t for tag)
-Step 3 - docker run
+```bash
+docker images
 ```
 
-- `docker login` - 
+- Pull/Downlaod the image from the Docker registry to local machine.
 
-- `docker network ls` - list of network
+```bash
+docker pull <image name>
+//Eg: docker run nginx
+```
 
+- To run an container (It will 1st pull the image if not present in the local sytem)
+  - NOTE: When we just provide the name of the image it will pull the lastest one, i.e `nginx:latest`. We can also specify the version `nginx:1.14`
+  - Additioanly we can use flags
+     - `--name <name> `- To give a name to the conatiner.
+     - `-p <Hot port:container port>`- To fowrad the port.
+     - `-d` - To run in detached mode
+     - `-it` - For interactive envirnoment
+
+```bash
+docker run <image name>
+//Eg: docker run nginx
+```
+
+### DCONTAINER SPECIFIC COMMANDS
+
+- To stop a running conatiner
+
+```bash
+docker stop <container ID/name>
+``` 
+
+- To resume a stopped conatiner
+
+```bash
+docker start <container ID/name>
+```
+
+- To check the running processes inside a container.
+
+```bash
+docker top <container name/id>
+```
+
+- To check stats of running container.
+
+```bash
+docker stats <container name/id>
+```
+
+- Check the config and info of a conatiner.
+
+```bash
+docker stats <container name/id>
+//Eg: docker inspect mynginx
+```
+
+- Check all the container running.
+
+```bash
+docker ps
+or
+docker container ls
+```
+
+- To start and interactive session and get inide the container.
+
+  - NOTE: every image does not support `bash` so we use `sh`
+
+```
+docker exec -it <container ID/name> bash/sh
+```
+
+- To check which ports has been exposed and forwarded
+
+```bash
+docker port <image name>
+```
+
+- Check all the stopped container
+
+```bash
+docker ps -a
+```
+
+- Check logs of a container
+
+```bash
+docker logs <container ID/name>
+```
+
+- Delete all the stopped conatiner
+
+```bash
+docker container prune -f
+```
+- Auto cleanup when t
+
+```
+ docker container run —rm
+
+### Docker Network
+
+- Check list of avilable networks.
+
+```bash
+docker network ls
+```
+
+- Inspect a network components
+
+```bash
+docker network inspect <network name>
+```
+
+
+### Docker Images
+
+- Remove an image
+
+```bash
+docker rmi <image name> -f
+```
+
+- Remove all the images at once
+
+```bash
+docker rmi $(docker images -q)
+```
+
+- To inspect an image layers and other info
+
+```bash
+docker inspect  <image name/id>
+```
+
+### Docker Volume
+
+- Create bind mount
+  - Help to sync our local files with help of Docker container.
+  
 
 - To sync our local machine chnages with help of Docker volume (Bind mount)
     - `- v` is use to define volume, aslo we give another `-v` flag to override the changes so that it will not chnage in container.
@@ -199,5 +268,127 @@ docker image tag <image-name with tag> <new-image name with tag>
 docker image tag nginx pradumna/nginx:hello
 ```
 
+> DOCKER SWARM and SERVICE
+
+- To initalize swarm
+
+```bash
+docker swarm init
+```
+
+- Check all the node available
+
+```bash
+docker node ls
+```
+
+- To add a node as a manager
+
+```bash
+docker node update --role manager <node-name>
+```
+
+- To create an overlay network
+
+```bash
+docker network create -d overlay backend
+```
+
+- To craete a service
+
+    - `--name` - to give a service name
+    - `--replicas` - to define how many running instance of the same image.
+    - `-p` - for port forwarding
+
+```
+docker service create -p 8080:80 --name vote --replicas 2 nginx
+```
+
+- To get all task containers running on different node 
+
+```bash
+docker service ps <service-name/id>
+```
+
+> SERVICE UPDATE
+
+- To scale up the service (i.e increasing the no of replicas)
+
+```bash
+docker service scale <service name>=<no to scale>
+docker service scale mynginx=5
+```
+
+- To update the image in running service
+
+```bash
+docker service update --image <updated image> <service name>
+docker service update --image mynginx:1.13.6  web
+```
+
+- To update the port
+
+We ca't direclty update the port We have to add and remove the ports
+
+```
+docker service update --publish-rm 8080 --publish-add 808180 <service name>
+docker service update --publish-rm 8080 --publish-add 808180 mynginx
+```
+
+> DOCKER STACK
+
+- To deploy a stack file
+
+```bash
+docker stack deploy -c <file-name.yaml> <stackname>
+```
+
+- To remove running stack
+
+```
+docker stack rm <stack name>
+```
+
+- To check list of stacks running
+
+```
+docker stack ls
+```
+
+**STACK -> SERVICES -> TASKS -> CONTAINERS**
+
+- To check which services are running inside a staacks
+
+```
+docker stack services <stack name>
+```
+
+- To check taks are running inside a stack
+
+```
+docker stack ps <stack name> 
+```
+
+> Registry
+
+```
+127.0.0.0:5000/v2/_catalog
+```
+
+### Tips and Short hands
+
+- Run the command with the container creation
+
+```bash
+doc run <image-name> <command>
+// Eg: `doc run ubuntu:16.04 echo hey`
+```
 
 
+- Creating our Own image and container.
+
+```
+Step 1 - create Dockerfile
+Step 2 - docker build -t myimage:1.0 <location> (-t for tag)
+Step 3 - docker run
+```
