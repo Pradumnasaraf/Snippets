@@ -183,6 +183,8 @@ kubectl apply -f <config file name> --namespace=<namespace name>
 
 ```
 
+- To chnage default/active namespace
+
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
 - `kubectl edit deployment ngnix` - Edit the config file.
