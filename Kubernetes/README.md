@@ -176,6 +176,13 @@ kubectl edit deployment <deployment name>
 kubectl delete pods --all
 ```
 
+- Apply to a particular namespace
+
+```yaml
+kubectl apply -f <config file name> --namespace=<namespace name>
+
+```
+
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
 - `kubectl edit deployment ngnix` - Edit the config file.
@@ -183,7 +190,6 @@ kubectl delete pods --all
 - `kubectl get pod -o wide` - get more details about the pods
 
 - `kubectl create namespace <insert-namespace-name-here>` - create a namespace
-- `kubectl apply -f <config file name> --namespace=<namespace name>`
     - Eg: `kub apply -f mongo-configmap.yaml --namespace=my-namespace`
 - `kub get configmap -n my-namespace`
     - Eg: `kub get configmap -n my-namespace`
