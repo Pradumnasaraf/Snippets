@@ -47,6 +47,12 @@ kubectl scale deployment mynginx --replicas 2
 kubectl get all
 ```
 
+- To get the get details from the a particular namespace
+
+```bash
+kubectl get all -n <namespace name>
+```
+
 - To get the internal components running
 
 ```bash
