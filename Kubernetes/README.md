@@ -47,6 +47,12 @@ kubectl scale deployment mynginx --replicas 2
 kubectl get all
 ```
 
+- To get the get details from the a particular namespace
+
+```bash
+kubectl get all -n <namespace name>
+```
+
 - To get the internal components running
 
 ```bash
@@ -113,7 +119,7 @@ kubectl delete pod <pod-name>
 kubectl logs <pod-name>
 ```
 
-- To check logs or sh/bash of a container inside a pod.
+- To check logs or sh/bash of a container inside a pod. That if pods have multiple container an we have enter inside a container
 
 ```bash
 kube exec -it <pod-name> -c <container-name> -- <bash command>
@@ -170,6 +176,15 @@ kubectl edit deployment <deployment name>
 kubectl delete pods --all
 ```
 
+- Apply to a particular namespace
+
+```yaml
+kubectl apply -f <config file name> --namespace=<namespace name>
+
+```
+
+- To chnage default/active namespace
+
 - `kubectl create deployment <deployment-name> --image=<image-name> ` - cteate a deplyment (pod inside it, you can't directly created pods)
     - `kubectl create deployment ngni-dep --image=ngnix` 
 - `kubectl edit deployment ngnix` - Edit the config file.
@@ -177,7 +192,6 @@ kubectl delete pods --all
 - `kubectl get pod -o wide` - get more details about the pods
 
 - `kubectl create namespace <insert-namespace-name-here>` - create a namespace
-- `kubectl apply -f <config file name> --namespace=<namespace name>`
     - Eg: `kub apply -f mongo-configmap.yaml --namespace=my-namespace`
 - `kub get configmap -n my-namespace`
     - Eg: `kub get configmap -n my-namespace`
