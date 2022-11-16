@@ -119,7 +119,7 @@ kubectl delete pod <pod-name>
 kubectl logs <pod-name>
 ```
 
-- To check logs or sh/bash of a container inside a pod.
+- To check logs or sh/bash of a container inside a pod. That if pods have multiple container an we have enter inside a container
 
 ```bash
 kube exec -it <pod-name> -c <container-name> -- <bash command>
