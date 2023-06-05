@@ -2,28 +2,32 @@
 
 <p align="center"> Contains all my learning related to diffent technologies. </p>
 
-If you want to learn about DevOps tools and technologies, check out this dedicated [repo](https://github.com/Pradumnasaraf/DevOps/)
+<br>
+
+> **Note** If you want to learn about DevOps tools and technologies, check out this dedicated [Pradumnasaraf/Devops](https://github.com/Pradumnasaraf/DevOps/)
+
+<br>
 
 ## Node
 
-<img align="right" src="https://user-images.githubusercontent.com/51878265/200594367-f416d081-af8f-4f48-8008-998d005b317f.png" height="100" alt="Kubernetes"> 
+<img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/3ca93d20-3ffc-4796-94a1-314e7567fbbe" height="100" alt="Kubernetes"> 
 
-- [Notes + Learning Resources](Kubernetes/README.md)
+- [Notes](Node/README.md)
 
 <br>
 
 ## Redis
 
-<img align="right" src="https://user-images.githubusercontent.com/51878265/200594916-47ba8a4c-fb94-4953-b179-dfb542df9499.png" height="100" alt="docker"> 
+<img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/25bad6a3-3ed5-4c8c-9fd4-716600af0459 " height="100" alt="docker"> 
 
-- [Notes + Learning Resources](Docker/README.md)
+- [Notes](Redis/README.md)
 
 <br>
 
 ## GraphQL
 
-<img align="right" src="https://user-images.githubusercontent.com/51878265/211621722-c2ddc389-6e4e-4769-9dac-f18f8e71fed3.png" height="100" alt="GitHub Action"> 
+<img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/f0f727d8-1245-474b-8ab7-43051b43b8b3" height="100" alt="GitHub Action"> 
 
-- [Notes + Learning Resources](GitHub-Actions/README.md)
+- [Notes](GraphQL/README.md)
 
 <br>
