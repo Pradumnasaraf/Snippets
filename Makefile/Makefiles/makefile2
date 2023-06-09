@@ -1,0 +1,8 @@
+IMAGE=Pradumnasaraf/hello-world
+TAG=latest
+
+build:
+    docker build -t $(IMAGE):$(TAG) .
+
+publish: build
+    docker push $(IMAGE):$(TAG)
