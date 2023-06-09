@@ -9,7 +9,6 @@ It reduces the fetching of data from multiple endpoints and reduces the over fet
 - [GraphQL](https://graphql.org/)
 - Official docs for [ref](https://graphql.org/learn/queries/)
 
-
 ### Queries
 
 Queries are used to fetch data from the server. Queries are always sent as a POST request to the server.
@@ -50,8 +49,9 @@ query nameOfQuery {
 ```
 
 ```graphql
-query findAUser { # findAUser is the name of the query
-  users{
+query findAUser {
+  # findAUser is the name of the query
+  users {
     firstName
     age
   }
@@ -76,14 +76,14 @@ Example:
 
 ```graphql
 mutation {
-  addUser(firstName: "John", age: 30) {  #we are passing arguments to the mutation
+  addUser(firstName: "John", age: 30) {
+    #we are passing arguments to the mutation
     id
     firstName
     age
   }
 }
 ```
-
 
 ### Arguments
 
@@ -122,9 +122,9 @@ query nameOfQuery($variable: Type) {
 }
 ```
 
-
 ```graphql
-query findAUser($id: ID!) { # $id is the variable
+query findAUser($id: ID!) {
+  # $id is the variable
   user(id: $id) {
     firstName
     age
@@ -144,12 +144,11 @@ To pass the variable to the query, we need to pass it as a JSON object.
 
 We can also set default values to the variables. If we don't pass the variable, then the default value will be used.
 
-
 Example:
 
 ```graphql
-
-query findAUser($id: ID = "1") { # $id is the variable
+query findAUser($id: ID = "1") {
+  # $id is the variable
   user(id: $id) {
     firstName
     age
@@ -240,3 +239,80 @@ fragment companyDetails on Company {
 
 Now we can use the `companyDetails` fragment anywhere we want.
 
+### Directives
+
+Directives can be used to change the execution behavior of fields or fragments. Directives can be used to `include` or `skip` a field or fragment. Directives are always preceded by a `@` sign. It's like an if statement.
+
+Syntax:
+
+```graphql
+field @directive
+```
+
+#### include
+
+```graphql
+field @include(if: Boolean)
+```
+
+Example:
+
+```graphql
+query {
+  user(id: "1") {
+    firstName
+    age @include(if: true) # if true, then include the age field
+  }
+}
+```
+
+We can also pass variables to the directives.
+
+```graphql
+query getUser($includeAge: Boolean!) {
+  user(id: "1") {
+    firstName
+    age @include(if: $includeAge) # if true, then include the age field
+  }
+}
+```
+
+```json
+{
+  "includeAge": true
+}
+```
+
+#### skip
+
+```graphql
+field @skip(if: Boolean)
+```
+
+Example:
+
+```graphql
+query {
+  user(id: "1") {
+    firstName
+    age @skip(if: true) # if true, then skip the age field
+  }
+}
+```
+
+We can also pass variables to the directives.
+
+```graphql
+query getUser($skipAge: Boolean!) {
+  user(id: "1") {
+    firstName
+    age @skip(if: $skipAge) # if true, then skip the age field
+  }
+}
+```
+
+```json
+{
+  "skipAge": true
+}
+```
