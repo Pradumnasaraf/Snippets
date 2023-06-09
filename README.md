@@ -34,7 +34,8 @@
 
 ## Makefile
 
-<img align="right" src="" height="100" alt="Makefile">
+<img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/36dd506c-2e11-45fa-8ee4-a009ad3ab915" height="100" alt="Makefile">
 
 - [Notes](Makefile/README.md)
 - [Makefile](Makefile/Makefile)
+
