@@ -147,8 +147,14 @@ brew bundle dump
 brew bundle install
 ```
 
-- Uninstall packages from a Brewfile
+- Update packages from a Brewfile
 
 ```bash
-brew bundle cleanup
+brew bundle dump --force
+```
+
+- Cleanup the system packages according to the Brewfile
+
+```bash
+brew bundle cleanup --force
 ```
