@@ -39,3 +39,9 @@
 - [Notes](Makefile/README.md)
 - [Makefile](Makefile/Makefile)
 
+## Homebrew
+
+<img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/829d093c-d95c-4e3d-9dd7-1d66f3669c4b" height="100" alt="Makefile">
+
+- [Notes](Homebrew/README.md)
+
