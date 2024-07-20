@@ -39,9 +39,20 @@
 - [Notes](Makefile/README.md)
 - [Makefile](Makefile/Makefile)
 
+<br>
+
 ## Homebrew
 
 <img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/829d093c-d95c-4e3d-9dd7-1d66f3669c4b" height="100" alt="Makefile">
 
 - [Notes](Homebrew/README.md)
+
+<br>
+
+
+## Regex
+
+<img align="right" src="https://github.com/user-attachments/assets/8fd2df91-9d17-4cfd-98d0-e517ebd2542c" height="100" alt="Makefile">
+
+- [Notes](Regex/README.md)
 
