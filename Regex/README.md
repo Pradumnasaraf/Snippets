@@ -52,4 +52,16 @@ Regular expressions are a powerful tool for pattern matching and text processing
 
 ### Groups:
 - `( )` : Used for grouping
+- `(this|that)` : Matches `this` or `that`
 
+## Lookarounds:
+
+- `(?=...)` : Positive lookahead
+- `(?!...)` : Negative lookahead
+- `(?<=...)` : Positive lookbehind
+- `(?<!...)` : Negative lookbehind
+
+### Mixed:
+
+- `.` : Matches any character except newline
+- `..a` : Matches any three-character string ending with `a`
