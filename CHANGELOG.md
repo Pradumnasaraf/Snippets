@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/Pradumnasaraf/Snippets/compare/v2.0.1...v2.1.0) (2024-07-20)
+
+
+### Features
+
+* Add Regex notes and examples ([4522b06](https://github.com/Pradumnasaraf/Snippets/commit/4522b0620ca3bc20661880bb9b4b6a4256ec3d28))
+
+
+
 ## [2.0.1](https://github.com/Pradumnasaraf/Snippets/compare/v2.0.0...v2.0.1) (2023-07-27)
 
 
