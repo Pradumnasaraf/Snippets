@@ -5,6 +5,7 @@ Regular expressions are a powerful tool for pattern matching and text processing
 ### Resources
 
 - [https://regexr.com/](https://regexr.com/)
+- [https://regexlearn.com/learn/regex101](https://regexlearn.com/learn/regex101)
 
 ### Syntax
 
