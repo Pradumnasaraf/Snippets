@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: Redis
+slug: /redis
 ---
 
 ## Redis

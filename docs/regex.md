@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: Regex
+slug: /regex
 ---
 
 ## Regex
