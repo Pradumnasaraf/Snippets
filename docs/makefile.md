@@ -1,6 +1,5 @@
 ---
 sidebar_position: 4
-slug: /makefile
 title: Makefile
 ---
 
@@ -48,7 +47,6 @@ build:
 When a tagets depends on other targets, you can chain them.
 
 ```makefile
-
 IMAGE=Pradumnasaraf/hello-world
 TAG=latest
 
@@ -57,6 +55,5 @@ build:
 
 publish: build
     docker push $(IMAGE):$(TAG)
-
 ```
 

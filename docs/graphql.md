@@ -1,10 +1,7 @@
 ---
 sidebar_position: 2
-slug: /graphql
 title: GraphQL
 ---
-
-
 
 GrapgQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. It gives clients the power to ask for exactly what they need and nothing more.
 

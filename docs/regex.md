@@ -1,6 +1,5 @@
 ---
 sidebar_position: 6
-slug: /regex
 title: Regex
 ---
 
@@ -15,7 +14,7 @@ Regular expressions are a powerful tool for pattern matching and text processing
 
 ### Syntax
 
-```
+```bash
 /pattern/modifiers
 ```
 
