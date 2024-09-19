@@ -32,6 +32,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/oswp:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/oswp:${{ steps.package-version.outputs.current-version}}
+            ${{ secrets.DOCKERHUB_USERNAME }}/snippets:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/snippets:${{ steps.package-version.outputs.current-version}}
           platforms: linux/amd64,linux/arm64,linux/arm/v7

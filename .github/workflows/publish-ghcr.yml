@@ -47,7 +47,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: | 
-            ghcr.io/pradumnasaraf/oswp:${{ steps.package-version.outputs.current-version}}
-            ghcr.io/pradumnasaraf/oswp:latest
+            ghcr.io/pradumnasaraf/snippets:${{ steps.package-version.outputs.current-version}}
+            ghcr.io/pradumnasaraf/snippets:latest
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           labels: ${{ steps.meta.outputs.labels }}
