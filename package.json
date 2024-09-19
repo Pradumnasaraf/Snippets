@@ -1,7 +1,6 @@
 {
   "name": "snippets",
-  "version": "0.0.0",
-  "private": true,
+  "version": "2.2.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
