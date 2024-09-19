@@ -5,7 +5,7 @@ const config = {
   title: 'Snippets',
   tagline: 'A Collection of Useful Dev tools and Snippets',
   favicon: 'img/favicon.ico',
-  url: 'http:localhost:3000',
+  url: 'http:snippets.pradumnasaraf.dev',
   baseUrl: '/',
   organizationName: 'Pradumnasaraf',
   projectName: 'Snippets',
