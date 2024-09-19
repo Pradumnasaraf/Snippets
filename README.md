@@ -20,7 +20,7 @@
 
 <img align="right" src="https://github.com/Pradumnasaraf/Snippets/assets/51878265/25bad6a3-3ed5-4c8c-9fd4-716600af0459 " height="100" alt="docker"> 
 
-- [Notes](docs/redis.md
+- [Notes](docs/redis.md)
 
 <br>
 
