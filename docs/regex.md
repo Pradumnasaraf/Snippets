@@ -1,3 +1,9 @@
+---
+sidebar_position: 6
+slug: /regex
+title: Regex
+---
+
 ## Regex
 
 Regular expressions are a powerful tool for pattern matching and text processing. They are used in many programming languages and tools like grep, sed, awk, and more.

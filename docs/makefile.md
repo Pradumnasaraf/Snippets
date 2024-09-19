@@ -1,3 +1,9 @@
+---
+sidebar_position: 4
+slug: /makefile
+title: Makefile
+---
+
 ## Makefile
 
 Makefile is a tool which controls the generation of executables and other non-source files of a program from the program's source files.

@@ -11,7 +11,7 @@ const config = {
   title: 'Snippets',
   tagline: 'A Collection of Useful Dev tools and Snippets',
   favicon: 'img/favicon.ico',
-  url: 'localhost:3000',
+  url: 'http:localhost:3000',
   baseUrl: '/',
   organizationName: 'Pradumnasaraf',
   projectName: 'Snippets',
@@ -29,8 +29,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          routeBasePath: '/',
           editUrl:
             'https://github.com/Pradumnasaraf/Snippets/edit/main/',
         },

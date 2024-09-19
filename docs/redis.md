@@ -1,3 +1,9 @@
+---
+sidebar_position: 5
+slug: /redis
+title: Redis
+---
+
 ## Redis
 
 Redis is in-memory data structure store, used as a database, cache and message broker. It stores data in key-value pair. It is used with DB like MySQL, MongoDB to make data access faster.
