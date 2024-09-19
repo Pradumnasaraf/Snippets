@@ -1,3 +1,9 @@
+---
+sidebar_position: 5
+title: Redis
+slug: /redis
+---
+
 ## Redis
 
 Redis is in-memory data structure store, used as a database, cache and message broker. It stores data in key-value pair. It is used with DB like MySQL, MongoDB to make data access faster.
@@ -44,20 +50,21 @@ flushall
 ```bash
 SET name pradumna EX 10
 ```
+
 - or set to existing keys by
 
-```
+```bash
 ttl <key> <time to live in seconds>
 ```
 or
-```
 
+```bash
 setex <key-name> <time-of-expiration-sec> <value>
 ```
 
 - or set to existing keys by
 
-```
+```bash
 ttl <key> <time to live in seconds>
 ```
 > ARRAY
@@ -75,20 +82,20 @@ rpush <arrayname> <value to push>
 ```
 - to get all the value from the array
 
-```
+```bash
 lrange <keyname> <staring index> <ending indxex>
 lrange name 0 -1
 ```
 
 - To remove 1st item of array
 
-```
+```bash
 LPOP friends
 ```
 
 - To remove last item of array
 
-```
+```bash
 RPOP friends
 ```
 
@@ -96,7 +103,7 @@ RPOP friends
 
 - To add elemets in the set
 
-```
+```bash
 SADD <set-key> "value"
 ```
 
@@ -107,7 +114,7 @@ SMEMEBERS <set-key>
 ```
 - TO remove an element from a set
 
-```
+```bash
 SREM <set-key> <value>
 SREM color red
 ```
@@ -122,29 +129,27 @@ HSET person name ron
 ```
 - To get a key value pair 
 
-```
+```bash
 HGET <hash-key> <propery name>
 HGET person name
 ```
 
 - To get all the properties of a set
 
-```
+```bash
 HGETALL <hash-key>
 HGETALL person
 ```
 
 - To delete a property in a set
 
-```
+```bash
 HGETALL <hash-key> <property name>
 HDEL pseron age
 ```
 
 - To check propert exits of not
 
-```
+```bash
 HEXISTS <hash-key> <property name>
 ```
-
-

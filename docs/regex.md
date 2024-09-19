@@ -1,3 +1,9 @@
+---
+sidebar_position: 6
+title: Regex
+slug: /regex
+---
+
 ## Regex
 
 Regular expressions are a powerful tool for pattern matching and text processing. They are used in many programming languages and tools like grep, sed, awk, and more.
@@ -9,7 +15,7 @@ Regular expressions are a powerful tool for pattern matching and text processing
 
 ### Syntax
 
-```
+```bash
 /pattern/modifiers
 ```
 
@@ -54,6 +60,19 @@ Regular expressions are a powerful tool for pattern matching and text processing
 ### Groups:
 - `( )` : Used for grouping
 - `(this|that)` : Matches `this` or `that`
+
+### Order of Grouping:
+
+`\1` : Matches the same text as most recently matched by the 1st capturing group
+`\2` : Matches the same text as most recently matched by the 2nd capturing group
+
+Example:
+
+To match `ha-ha,haa-haa`: 
+
+```regex
+(ha)-\1,(haa)-\2
+```
 
 ## Lookarounds:
 

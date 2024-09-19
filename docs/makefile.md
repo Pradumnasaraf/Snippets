@@ -1,3 +1,9 @@
+---
+sidebar_position: 4
+title: Makefile
+slug: /makefile
+---
+
 ## Makefile
 
 Makefile is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
@@ -42,7 +48,6 @@ build:
 When a tagets depends on other targets, you can chain them.
 
 ```makefile
-
 IMAGE=Pradumnasaraf/hello-world
 TAG=latest
 
@@ -51,6 +56,5 @@ build:
 
 publish: build
     docker push $(IMAGE):$(TAG)
-
 ```
 
