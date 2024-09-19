@@ -4,14 +4,15 @@
 
 ## 👨‍💻 Prerequisite
 
-#### Documention
+#### Documentation 
 
-- [Git](https://git-scm.com/)
+- [Git](https://git-scm.com/) 
 - [Markdown](https://www.markdownguide.org/basic-syntax/)
+- [Git with Atlassian](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
 
 #### Code
 
-- [HTML](https://www.w3schools.com/html/)
+- [Node.js](https://nodejs.org/en/)
 
 ## 💥 How to Contribute
 

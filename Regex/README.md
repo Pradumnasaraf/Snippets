@@ -55,6 +55,19 @@ Regular expressions are a powerful tool for pattern matching and text processing
 - `( )` : Used for grouping
 - `(this|that)` : Matches `this` or `that`
 
+### Order of Grouping:
+
+`\1` : Matches the same text as most recently matched by the 1st capturing group
+`\2` : Matches the same text as most recently matched by the 2nd capturing group
+
+Example:
+
+To match `ha-ha,haa-haa`: 
+
+```regex
+(ha)-\1,(haa)-\2
+```
+
 ## Lookarounds:
 
 - `(?=...)` : Positive lookahead
