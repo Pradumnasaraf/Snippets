@@ -41,7 +41,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      algolia:{
+        apiKey: '564bc6c39c4970f111cb060b4d180862',
+        indexName: 'snippets',
+        appId: 'X7NKTXD9KU',
+        contextualSearch: true,
+      },
       image: 'img/snippets-repo-card.png',
       navbar: {
         title: 'Snippets',
