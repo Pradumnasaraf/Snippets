@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: npm install --global vercel@latest --token=${{ secrets.VERCEL_TOKEN }}
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
