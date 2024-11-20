@@ -4,9 +4,6 @@ title: Node.js
 slug: /
 ---
 
-
-## Node
-
 Node.js is JavScript runtime environment. It is built on Chrome's V8 JavaScript engine. 
 
 ### NPM
@@ -62,7 +59,7 @@ node install <package-name> -g
 npm install -D <package-name>
 ```
 
-- Insrall all the packages from `package.json` file.
+- Install all the packages from `package.json` file.
 
 ```bash
 npm install

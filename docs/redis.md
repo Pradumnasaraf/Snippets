@@ -4,8 +4,6 @@ title: Redis
 slug: /redis
 ---
 
-## Redis
-
 Redis is in-memory data structure store, used as a database, cache and message broker. It stores data in key-value pair. It is used with DB like MySQL, MongoDB to make data access faster.
 
 ### Commands
@@ -39,7 +37,7 @@ EXISTS <key>
 GET *
 ```
 
-- To delte all the keys
+- To delete all the keys
 
 ```bash
 flushall
@@ -69,7 +67,7 @@ ttl <key> <time to live in seconds>
 ```
 > ARRAY
 
-- To push the elment at the left side of the array (It will create if it dosen't exists)
+- To push the elment at the left side of the array (It will create if it doesn't exists)
 
 ```bash
 lpush <arrayname> <value to push>

@@ -4,9 +4,6 @@ title: Homebrew
 slug: /homebrew
 ---
 
-
-## Homebrew
-
 Homebrew is a package manager for macOS. It allows you to install and manage packages and applications from the command line.
 
 ### Documentation

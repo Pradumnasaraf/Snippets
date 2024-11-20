@@ -4,8 +4,6 @@ title: Makefile
 slug: /makefile
 ---
 
-## Makefile
-
 Makefile is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
 
 To run the Makefile, you need to run `make <target>`. For example, to run the `build` target, you need to run `make build`.
@@ -45,7 +43,7 @@ build:
 
 ### chaining of targets.
 
-When a tagets depends on other targets, you can chain them.
+When a targets depends on other targets, you can chain them.
 
 ```makefile
 IMAGE=Pradumnasaraf/hello-world
