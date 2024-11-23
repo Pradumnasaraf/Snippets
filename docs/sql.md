@@ -201,6 +201,8 @@ CREATE TABLE person (
 
 ### Insert Records
 
+- To insert a new record into a table:
+
 ```sql
 // SYNTAX:
 INSERT INTO <table_name> (
@@ -259,6 +261,7 @@ SELECT * FROM <table_name> ORDER BY <column_name> ASC;
 
 // EXAMPLE:
 SELECT * FROM person ORDER BY first_name ASC;
+SELECT * FROM person ORDER BY first_name ASC;
 SELECT * FROM person ORDER BY date_of_birth ASC;
 ```
 
@@ -278,7 +281,7 @@ By default, the order is ascending. So, we don't need to specify `ASC` explicitl
 
 ### Distinct Records
 
-- To select distinct records:
+- To select distinct records that is unique.In this case, it will return only one record if there are multiple records with the same value.  
 
 ```sql
 // SYNTAX:
@@ -367,22 +370,22 @@ SELECT * FROM <table_name> OFFSET <number>;
 SELECT * FROM person OFFSET 10;
 ```
 
-- To select a limited number of records and skip a number of records:
+- To select a limited number of records. It's same as 'LIMIT'.
 
 ```sql
 
 // SYNTAX:
-SELECT * FROM <table_name> OFFSET <number> FETCH FIRST <number> ROWS ONLY;
+SELECT * FROM <table_name> FETCH FIRST <number> ROWS ONLY;
 
 // EXAMPLE:
-SELECT * FROM person OFFSET 10 FETCH FIRST 10 ROWS ONLY;
+SELECT * FROM person FETCH FIRST 10 ROWS ONLY;
 ```
 
 ### In 
 
 **IN** is used to specify multiple values in a WHERE clause. It's kind of a shorthand for multiple OR conditions.
 
-- To select records based on multiple values:
+- To select records based on multiple values. It's like passing an array of values to match.
 
 ```sql
 // SYNTAX:
@@ -457,6 +460,83 @@ SELECT <column_name>, COUNT(*) FROM <table_name> GROUP BY <column_name>;
 
 // EXAMPLE
 SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
+```
+
+In the above query, it will group the records based on the `country_of_birth` column and count the number of records in each group.
+
+### Having
+
+**HAVING** is used to filter records based on a condition.
+
+- To filter records based on a condition:
+
+```sql
+// SYNTAX:
+SELECT <column_name>, COUNT(*) FROM <table_name> GROUP BY <column_name> HAVING <condition>;
+
+// EXAMPLE
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 1;
+```
+
+In the above query, it will group the records based on the `country_of_birth` column and count the number of records in each group. It will filter the groups that have more than one record. 
+
+## Min, Max, Sum, Avg
+
+**MIN** is used to get the minimum value of a column.
+**MAX** is used to get the maximum value of a column.
+**SUM** is used to get the sum of a column.
+**AVG** is used to get the average value of a column.
+
+- To get the minimum value of a column:
+
+```sql
+// SYNTAX:
+SELECT MIN(<column_name>) FROM <table_name>;
+
+SELECT MIN(age) FROM person;
+```
+
+- To get the maximum value of a column:
+
+```sql
+// SYNTAX:
+SELECT MAX(<column_name>) FROM <table_name>;
+
+SELECT MAX(age) FROM person;
+```
+
+- To get the sum of a column:
+
+```sql
+// SYNTAX:
+
+SELECT SUM(<column_name>) FROM <table_name>;
+
+SELECT SUM(price) FROM product;
+```
+
+- To get the average value of a column:
+
+```sql
+// SYNTAX:
+SELECT AVG(<column_name>) FROM <table_name>;
+
+SELECT ROUND(AVG(price), 2) FROM product;
+```
+
+**ROUND** is used to round the value to a specific number of decimal places.
+
+
+Below query will return the minimum price of each car make.
+
+```sql
+SELECT make,  MIN(price) FROM car GROUP BY make;
+```
+
+Below query will return the average price of each car make.
+
+```sql
+SELECT make,  AVG(price) FROM car GROUP BY make;
 ```
 
 ## Tools
