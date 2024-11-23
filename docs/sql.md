@@ -480,7 +480,7 @@ SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING C
 
 In the above query, it will group the records based on the `country_of_birth` column and count the number of records in each group. It will filter the groups that have more than one record. 
 
-## Min, Max, Sum, Avg
+### Min, Max, Sum, Avg
 
 **MIN** is used to get the minimum value of a column.
 **MAX** is used to get the maximum value of a column.
@@ -530,14 +530,376 @@ SELECT ROUND(AVG(price), 2) FROM product;
 Below query will return the minimum price of each car make.
 
 ```sql
-SELECT make,  MIN(price) FROM car GROUP BY make;
+SELECT make, MIN(price) FROM car GROUP BY make;
 ```
 
 Below query will return the average price of each car make.
 
 ```sql
-SELECT make,  AVG(price) FROM car GROUP BY make;
+SELECT make, AVG(price) FROM car GROUP BY make;
 ```
+
+### Arithmetic Operators
+
+We can perform arithmetic operations on columns like addition, subtraction, multiplication, and division.
+
+- To perform arithmetic operations:
+
+```sql
+// SYNTAX:
+SELECT <column_name> + <column_name> FROM <table_name>;
+
+// EXAMPLE:
+SELECT price + tax FROM product;
+```
+
+### Alias
+
+**Alias** is used to give a temporary name to a column or table. If we don't set it the PostgreSQL will use function name like for ROUND it will use `round` or `?column?` for the column.
+
+- To give an alias to a column:
+
+```sql
+// SYNTAX:
+SELECT <column_name> AS <alias_name> FROM <table_name>;
+
+// EXAMPLE:
+SELECT first_name AS name FROM person;
+
+SELECT price, price * 0.1 AS tax FROM product;
+```
+
+### Coalesce
+
+**COALESCE** is used to return the first non-null value in a list. It is helpful when we have multiple columns and we want to return the first non-null value.
+
+- To return the first non-null value:
+
+```sql
+// SYNTAX:
+SELECT COALESCE(<column_name>, 'default_value') FROM <table_name>;
+SELECT COALESCE(<column_name>, <column_name>, <column_name>, 'default_value') FROM <table_name>;
+
+// EXAMPLE:
+SELECT COALESCE(email, 'N/A') FROM person;
+SELECT COALESCE(email, phone, address, 'N/A') FROM person;
+```
+
+### Timestamp and Date
+
+- To get the date and time:
+
+```sql
+SELECT NOW();
+```
+
+- To get the date:
+
+```sql
+SELECT NOW()::DATE;
+```
+
+- To get the time:
+
+```sql
+SELECT NOW()::TIME;
+```
+
+`::` is used to cast the value to a specific data type.
+
+There are some Keywords that can be used to get the current date and time:
+
+- `CURRENT_DATE` - It will return the current date.
+- `CURRENT_TIME` - It will return the current time.
+- `CURRENT_TIMESTAMP` - It will return the current timestamp.
+- `LOCALTIME` - It will return the current time.
+
+```sql
+SELECT CURRENT_DATE;
+SELECT CURRENT_TIME;
+SELECT CURRENT_TIMESTAMP;
+SELECT LOCALTIME;
+```
+
+### Adding and Subtracting Dates
+
+- To subtract days, months, years from the current date:
+
+```sql
+// SYNTAX:
+SELECT NOW() - INTERVAL '<number> <unit>';
+
+// EXAMPLE:
+SELECT NOW() - INTERVAL '1 day';
+SELECT NOW() - INTERVAL '1 month';
+SELECT NOW() - INTERVAL '1 year';
+```
+
+- To add days to the current date:
+
+```sql
+// SYNTAX:
+SELECT NOW() + INTERVAL '<number> <unit>';
+
+// EXAMPLE:
+SELECT NOW() + INTERVAL '1 day';
+SELECT NOW() + INTERVAL '1 month';
+SELECT NOW() + INTERVAL '1 year';
+```
+
+With casting, we can get the date and time:
+
+```sql
+SELECT (NOW() + INTERVAL '1 day')::DATE;
+// If we do the below query, it will return the date and time
+SELECT NOW()::DATE + INTERVAL '1 day';
+```
+
+:::info
+both `day` and `days` can be used interchangeably. The same goes for `month` and `months`, `year` and `years`.
+:::
+
+### Extract
+
+**EXTRACT** is used to extract parts of a date.
+
+- To extract parts of a date:
+
+```sql
+// SYNTAX:
+SELECT EXTRACT(<part> FROM <date>);
+
+// EXAMPLE:
+SELECT EXTRACT(CENTURY FROM NOW());
+SELECT EXTRACT(YEAR FROM NOW());
+SELECT EXTRACT(MONTH FROM NOW());
+SELECT EXTRACT(DAY FROM NOW());
+SELECT EXTRACT(HOUR FROM NOW());
+SELECT EXTRACT(MINUTE FROM NOW());
+SELECT EXTRACT(SECOND FROM NOW());
+```
+
+### Nullif
+
+**NULLIF** is used to return null if two values are equal. It is helpful when we want to return null if two values are equal.
+
+- To return null if two values are equal:
+
+```sql
+// SYNTAX:
+SELECT NULLIF(<column_name>, <column_name>) FROM <table_name>;
+
+// EXAMPLE:
+SELECT NULLIF(10, 10); // It will return null
+SELECT 10 / NULLIF(0, 0) // It will return nothing
+SELECT COALESCE(NULLIF(10, 10), 0); // It will return 0
+```
+
+### Age Function
+
+**AGE** is used to calculate the age based on the date of birth.
+
+- To calculate the age:
+
+```sql
+// SYNTAX:
+SELECT AGE(Now(), '<date>');
+SELECT AGE(Now(), <column_name>) FROM <table_name>;
+
+// EXAMPLE:
+SELECT AGE(Now(), '1990-01-01');
+SELECT AGE(date_of_birth) FROM person;
+```
+
+### Primary Key
+
+**Primary Key** is used to uniquely identify each record in a table. It is a unique identifier for each record.
+
+- Drop a unique constrain
+
+Dropping a constraint means removing the constraint from the table. The constraint can be a primary key, foreign key, unique, or check constraint. 
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
+
+// EXAMPLE:
+ALTER TABLE person DROP CONSTRAINT person_pkey;
+```
+
+We can get the constraint name by executing the below query:
+
+```sql
+\d <table_name>
+```
+
+- Add a primary key:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD PRIMARY KEY (<column_name>);
+
+// EXAMPLE:
+ALTER TABLE person ADD PRIMARY KEY (id);
+```
+
+We can also give our own name to the primary key/constraint:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name> PRIMARY KEY (<column_name>);
+
+// EXAMPLE:
+ALTER TABLE person ADD CONSTRAINT person_pkey PRIMARY KEY (id);
+```
+
+### Unique Constraint
+
+**Unique Constraint** is used to ensure that all values in a column are unique.
+
+- Add a unique constraint:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD UNIQUE (<column_name>);
+
+// EXAMPLE:
+ALTER TABLE person ADD UNIQUE (email);
+```
+
+We can also pass this while creating the table:
+
+```sql
+// SYNTAX:
+CREATE TABLE <table_name> (
+    <column_name> <data_type> UNIQUE,
+    <column_name> <data_type> UNIQUE,
+    <column_name> <data_type> UNIQUE,
+    .
+    .
+    <column_name> <data_type> UNIQUE
+);
+
+// EXAMPLE:
+
+CREATE TABLE person (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR
+    email VARCHAR(50) UNIQUE
+);
+```
+
+We can also give our own name to the unique constraint:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name> UNIQUE (<column_name>);
+
+// EXAMPLE:
+ALTER TABLE person ADD CONSTRAINT person_email_unique UNIQUE (email);
+```
+
+### Check Constraint
+
+**Check Constraint** is used to ensure that all values in a column meet a specific condition.
+
+- Add a check constraint:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD CHECK (<condition>);
+
+// EXAMPLE:
+ALTER TABLE person ADD CHECK (age >= 18);
+```
+
+We can also give our own name to the check constraint:
+
+```sql
+// SYNTAX:
+ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name> CHECK (<condition>);
+
+// EXAMPLE:
+ALTER TABLE person ADD CONSTRAINT gender_check CHECK (gender = 'Male' OR gender = 'Female');
+```
+
+### Delete Records
+
+- To delete all records from a table:
+
+```sql
+// SYNTAX:
+DELETE FROM <table_name>;
+
+// EXAMPLE:
+DELETE FROM person;
+``` 
+
+- To delete a record from a table:
+
+```sql
+// SYNTAX:
+DELETE FROM <table_name> WHERE <column_name> = <value>;
+
+// EXAMPLE:
+DELETE FROM person WHERE id = 1;
+DELETE FROM person WHERE gender = 'Female' AND country_of_birth = 'Poland';
+```
+
+:::note
+It's recommended to use the `WHERE` clause while deleting the records. And use primary key with the `WHERE` clause to delete the record. The reason to use the primary key is to ensure that only one record is deleted.
+:::
+
+### Update Records
+
+- To update a record in a table:
+
+```sql
+// SYNTAX:
+UPDATE <table_name> SET <column_name> = <value> WHERE <column_name> = <value>;
+
+// EXAMPLE:
+UPDATE person SET first_name = 'John' WHERE id = 1;
+UPDATE person SET first_name = 'John', last_name = 'Doe', email = 'a@a.com' WHERE id = 1; // Update multiple columns
+```
+
+**SET** is used to set the new value of the column.
+
+### On Conflict Do Nothing
+
+**ON CONFLICT DO NOTHING** is used to do nothing if there is a conflict. It is helpful when we want to insert a record only if it doesn't exist.
+
+- To insert a record only if it doesn't exist:
+
+```sql
+// SYNTAX:
+
+INSERT INTO <table_name> (<column_name>, <column_name>, <column_name>) VALUES (<value>, <value>, <value>) ON CONFLICT DO NOTHING;
+
+// EXAMPLE:
+INSERT INTO person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) VALUES (5, 'Roxy', 'Sellan', 'rsellan4@networkadvertising.org', 'Female', '2024-03-31', 'South Africa') ON CONFLICT (id) DO NOTHING;
+```
+
+:::note
+To use `ON CONFLICT DO NOTHING`, we need to have a unique constraint on the column.
+:::
+
+### On Conflict Do Update
+
+**ON CONFLICT DO UPDATE** is used to update a record if there is a conflict. It is helpful when we want to update a record if it exists.
+
+- To update a record if it exists:
+
+```sql
+// SYNTAX:
+INSERT INTO <table_name> (<column_name>, <column_name>, <column_name>) VALUES (<value>, <value>, <value>) ON CONFLICT (<column_name>) DO UPDATE SET <column_name> = <value>;
+
+// EXAMPLE:
+INSERT INTO person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) VALUES (5, 'Roxy', 'Sellan', 'rsellan4@network@advertising.com', 'Female', '2024-03-31', 'South Africa') ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email;
+```
+
+**EXCLUDED** is used to get the value of the column that is being inserted.
 
 ## Tools
 
@@ -545,3 +907,8 @@ Some of the tools that can be used to work with PostgreSQL
 
 - [Mockaroo](https://www.mockaroo.com/): It is used to generate random data. We can generate data in different formats like JSON, CSV, SQL, etc.
 
+
+
+ Roxy       | Sellan    | rsellan4@networkadvertising.org | Female | 2024-03-31    | South Africa
+
+ insert into person (id, fist_name, last_name, email, gender, date_of_birth, country_of_birth) values (5, 'Roxy', 'Sellan', 'rsellan4@networkadvertising.org', 'Female', '2024-03-31', 'South Africa');
