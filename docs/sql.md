@@ -42,6 +42,8 @@ PostgreSQL supports the following data types:
 - `interval` - time interval
 - `array` - array
 
+Complete list of data types can be found [here](https://www.postgresql.org/docs/17/datatype.html).
+
 ## Commands
 
 Before executing the any PostgreSQL command, we need to connect and enter into the PostgreSQL shell. We can do this by executing the following command:
@@ -887,7 +889,7 @@ To use `ON CONFLICT DO NOTHING`, we need to have a unique constraint on the colu
 
 ### On Conflict Do Update
 
-**ON CONFLICT DO UPDATE** is used to update a record if there is a conflict. It is helpful when we want to update a record if it exists.
+**ON CONFLICT DO UPDATE** is used to update a record if there is a conflict. It is helpful when we want to update a record if it exists. For example if someone provided a wrong email and they instantly update it.
 
 - To update a record if it exists:
 
@@ -899,7 +901,333 @@ INSERT INTO <table_name> (<column_name>, <column_name>, <column_name>) VALUES (<
 INSERT INTO person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) VALUES (5, 'Roxy', 'Sellan', 'rsellan4@network@advertising.com', 'Female', '2024-03-31', 'South Africa') ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email;
 ```
 
-**EXCLUDED** is used to get the value of the column that is being inserted.
+Above query will insert a record if it doesn't exist. If it exists, it will update the email.
+
+**EXCLUDED** is used to get the value of the column that is being inserted. In above example we can do EXCLUDED.email, EXCLUDED.first_name, etc.
+
+
+### Foreign Key
+
+**Foreign Key** is used to create a relationship between two tables. It is used to ensure that the value in a column exists in another table. It is used to maintain the referential integrity between two tables. 
+
+- Add a while creating the table:
+
+```sql
+// SYNTAX:
+CREATE TABLE <table_name> (
+    <column_name> <data_type> REFERENCES <table_name>(<column_name>),
+);
+
+// EXAMPLE:
+CREATE TABLE person (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR
+    email VARCHAR(50) UNIQUE,
+    country_of_birth VARCHAR(50),
+    car_id BIGINT REFERENCES car(id)
+);
+
+CREATE TABLE car (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    make VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year INT NOT NULL
+);
+```
+
+After creating table and add some data, we can assign a car to a person by updating the car_id in the person table.
+
+```sql
+UPDATE person SET car_id = 1 WHERE id = 1;
+```
+
+```sql
+create table car (
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	make VARCHAR(100) NOT NULL,
+	model VARCHAR(100) NOT NULL,
+	price Numeric(19, 2) NOT NULL
+);
+
+create table person (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	gender VARCHAR(20) NOT NULL,
+	email VARCHAR(100),
+	date_of_birth DATE NOT NULL,
+	country_of_birth VARCHAR(50) NOT NULL,
+	car_id BIGINT REFERENCES car(id) UNIQUE
+);
+
+insert into person (first_name, last_name, gender, email, date_of_birth, country_of_birth) values ('Lalo', 'Sowte', 'Male', 'lsowte0@sina.com.cn', '2024-11-16', 'Palestinian Territory');
+insert into person (first_name, last_name, gender, email, date_of_birth, country_of_birth) values ('Townsend', 'Le Grove', 'Male', null, '2024-11-12', 'Canada');
+insert into person (first_name, last_name, gender, email, date_of_birth, country_of_birth) values ('Cort', 'Lepere', 'Male', 'clepere2@e-recht24.de', '2024-02-28', 'China');
+
+insert into car (make, model, price) values ('Chevrolet', 'Camaro', 10000.34);
+insert into car (make, model, price) values ('Ford', 'Fusion', 20000.34);
+```
+
+
+### Inner Join/Join
+
+**Inner Join** is used to combine records from two tables based on a related column between them. Join and Inner Join are the same. It will return only the common records between the two tables.
+
+- To join two tables:
+
+```sql
+// SYNTAX:
+SELECT * FROM <table_name> INNER JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+SELECT <column_name>, <column_name>, <column_name> FROM <table_name> INNER JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+// EXAMPLE:
+SELECT * FROM person INNER JOIN car ON person.car_id = car.id; // Select all columns
+SELECT person.first_name, person.last_name, car.make, car.model FROM person INNER JOIN car ON person.car_id = car.id; // Select specific columns
+```
+
+We can also do below when the column name is same in both tables:
+
+```sql
+// SYNTAX:
+SELECT * FROM <table_name> JOIN <table_name> USING (<column_name>);
+
+SELECT * FROM person JOIN car USING (car_id);
+```
+
+**USING** is used to specify the column name that is common in both tables.
+
+The purpose of the inner join is to get the records that are common in both tables. If there is no common record, it will not return anything.
+
+### Left Join
+
+**Left Join** is used to combine records from two tables based on a related column between them. It will return all records from the left table and the matched records from the right table. The difference between inner join and left join is that join will return only the common records whereas left join will return all records from the left table.
+
+- To left join two tables:
+
+```sql
+// SYNTAX:
+SELECT * FROM <table_name> LEFT JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+SELECT <column_name>, <column_name>, <column_name> FROM <table_name> LEFT JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+// EXAMPLE:
+SELECT * FROM person LEFT JOIN car ON person.car_id = car.id; // Select all columns
+
+SELECT person.first_name, person.last_name, car.make, car.model FROM person LEFT JOIN car ON person.car_id = car.id; // Select specific columns
+```
+
+### Right Join
+
+**Right Join** is used to combine records from two tables based on a related column between them. It will return all records from the right table and the matched records from the left table. The difference between inner  join and right join is that join will return only the common records whereas right join will return all records from the right table.
+
+- To right join two tables:
+
+```sql
+// SYNTAX:
+
+SELECT * FROM <table_name> RIGHT JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+SELECT <column_name>, <column_name>, <column_name> FROM <table_name> RIGHT JOIN <table_name> ON <table_name>.<column_name> = <table_name>.<column_name>;
+
+// EXAMPLE:
+
+SELECT * FROM person RIGHT JOIN car ON person.car_id = car.id; // Select all columns
+
+SELECT person.first_name, person.last_name, car.make, car.model FROM person RIGHT JOIN car ON person.car_id = car.id; // Select specific columns
+```
+
+### Deleting Records with Foreign Key
+
+To delete a record from a table that is being referenced by another table, we need to delete the record from the referencing table first and then delete the record from the referenced table. That is for above example, we need to delete the record from the person table first and then delete the record from the car table.
+
+- To delete a record from a table that is being referenced by another table:
+
+```sql
+// SYNTAX:
+DELETE FROM <table_name> WHERE <column_name> = <value>; // Delete the record from the referencing table
+DELETE FROM <table_name> WHERE <column_name> = <value>; // Delete the record from the referenced table
+
+
+// EXAMPLE:
+DELETE FROM person WHERE id = 1;
+DELETE FROM car WHERE id = 1;
+```
+
+### Truncate
+
+**Truncate** is used to delete all records from a table. It is faster than the delete command.
+
+- To delete all records from a table:
+
+```sql
+// SYNTAX:
+TRUNCATE <table_name>;
+
+// EXAMPLE:
+TRUNCATE person;
+```
+
+### Cascade
+
+**CASCADE** is used to delete all records from a table that is being referenced by another table. It is helpful when we want to delete all records from the referencing table and the referenced table.
+
+- To delete all records from a table that is being referenced by another table:
+
+```sql
+// SYNTAX:
+DELETE FROM <table_name> WHERE <column_name> = <value> CASCADE;
+
+// EXAMPLE:
+DELETE FROM person WHERE id = 1 CASCADE;
+```
+
+### Exporting Query Results in CSV
+
+- To export the query results in a CSV file:
+
+```sql
+// SYNTAX:
+COPY (<query>) TO '<file_path>' DELIMITER ',' CSV HEADER;
+or 
+\copy (<query>) TO '<file_path>' DELIMITER ',' CSV HEADER;
+
+// EXAMPLE:
+COPY (SELECT * FROM person) TO '/Users/pradumnasaraf/Dev/Snippets/person.csv' DELIMITER ',' CSV HEADER;
+or
+\copy (SELECT * FROM person) TO './person.csv' DELIMITER ',' CSV HEADER;
+```
+
+:::note
+`COPY` will not support the relative path. We need to provide the absolute path. If we want to use the relative path, we can use `\copy`.
+:::
+
+### Serial and Sequences
+
+- To create a serial column:
+
+```sql
+// SYNTAX:
+<column_name> SERIAL PRIMARY KEY;
+
+// EXAMPLE:
+id SERIAL PRIMARY KEY;
+```
+
+- To reset the sequence:
+
+```sql
+// SYNTAX:
+ALTER SEQUENCE <sequence_name> RESTART WITH <value>;
+
+// EXAMPLE:
+ALTER SEQUENCE person_id_seq RESTART WITH 1;
+```
+
+### Postgres Extension
+
+Postgres has some extensions that can be used to perform some specific operations. For eg, the benefit of using an extension like `uuid-ossp` is that it will generate a unique identifier for each record and that can be used as a primary key.
+
+- To check the available extensions:
+
+```sql
+SELECT * FROM pg_available_extensions;
+```
+
+- To install an extension:
+
+```sql
+// SYNTAX:
+CREATE EXTENSION IF NOT EXISTS <extension_name>;
+
+// EXAMPLE:
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+- To invoke the function of the extension:
+
+First to check the available functions of the extension:
+
+```sql
+\df
+```
+
+Then to invoke the function:
+
+```sql
+// SYNTAX:
+SELECT <function_name>();
+
+// EXAMPLE:
+SELECT uuid_generate_v4();
+```
+
+### UUID As Primary Key
+
+- To create a table with UUID as a primary key:
+
+```sql
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+
+CREATE TABLE person (
+    person_id UUID PRIMARY KEY NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR
+    email VARCHAR(50) UNIQUE,
+)
+
+INSERT INTO person (person_id, first_name, last_name, email) VALUES (uuid_generate_v4(), 'John', 'Doe', 'test@test.com');
+```
+
+### Default Value
+
+- To set a default value for a column in a table:
+
+```sql
+// SYNTAX:
+CREATE TABLE <table_name> (
+    <column_name> <data_type> DEFAULT <value>,
+    <column_name> <data_type> DEFAULT <value>,
+    <column_name> <data_type> DEFAULT <value>,
+    .
+    .
+    <column_name> <data_type> DEFAULT <value>
+);
+
+// EXAMPLE:
+CREATE TABLE person (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR
+    email VARCHAR(50) DEFAULT 'N/A'
+);
+```
+
+### Index
+
+**Index** is used to speed up the query performance. It is used to create an index on a column in a table.
+
+- To create an index:
+
+```sql
+// SYNTAX:
+CREATE INDEX <index_name> ON <table_name> (<column_name>);
+
+// EXAMPLE:
+CREATE INDEX person_email_index ON person (email);
+```
+
+- To drop an index:
+
+```sql
+// SYNTAX:
+DROP INDEX <index_name>;
+
+// EXAMPLE:
+DROP INDEX person_email_index;
+```
 
 ## Tools
 
@@ -907,8 +1235,3 @@ Some of the tools that can be used to work with PostgreSQL
 
 - [Mockaroo](https://www.mockaroo.com/): It is used to generate random data. We can generate data in different formats like JSON, CSV, SQL, etc.
 
-
-
- Roxy       | Sellan    | rsellan4@networkadvertising.org | Female | 2024-03-31    | South Africa
-
- insert into person (id, fist_name, last_name, email, gender, date_of_birth, country_of_birth) values (5, 'Roxy', 'Sellan', 'rsellan4@networkadvertising.org', 'Female', '2024-03-31', 'South Africa');
