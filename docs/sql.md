@@ -231,6 +231,34 @@ INSERT INTO person (
 ) VALUES (`John`, `Doe`, `Male`, `1990-01-01`, `test@test.com`);
 ```
 
+- We can also get ID of the inserted record:
+
+```sql
+// SYNTAX:
+INSERT INTO <table_name> (
+    <column_name>,
+    <column_name>,
+    <column_name>,
+    <column_name>,
+    <column_name>
+) VALUES (
+    <value>,
+    <value>,
+    <value>,
+    <value>,
+    <value
+) RETURNING <column_name>;
+
+// EXAMPLE:
+INSERT INTO person (
+    first_name
+    last_name
+    gender,
+    date_of_birth,
+    email
+) VALUES (`John`, `Doe`, `Male`, `1990-01-01`, `test@test.com`) RETURNING id;
+```
+
 ### Select Records
 
 - To select or get all the records from a table:
