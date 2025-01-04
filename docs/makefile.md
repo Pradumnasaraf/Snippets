@@ -1,7 +1,10 @@
 ---
 sidebar_position: 4
 title: Makefile
-slug: /makefile
+description: Learn about Makefile and its benefits.
+tags: ["Makefile", "Build Tool", "Automation"]
+keywords: ["Makefile", "Build Tool", "Automation"]
+slug: "/makefile"
 ---
 
 Makefile is a tool which controls the generation of executables and other non-source files of a program from the program's source files.

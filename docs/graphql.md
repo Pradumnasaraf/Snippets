@@ -1,7 +1,10 @@
 ---
 sidebar_position: 2
 title: GraphQL
-slug: /graphql
+description: Learn about GraphQL and its benefits.
+tags: ["GraphQL", "API", "Query Language"]
+keywords: ["GraphQL", "API", "Query Language"]
+slug: "/graphql"
 ---
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. It gives clients the power to ask for exactly what they need and nothing more.

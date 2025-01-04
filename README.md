@@ -54,3 +54,10 @@
 <img align="right" src="https://github.com/user-attachments/assets/8fd2df91-9d17-4cfd-98d0-e517ebd2542c" height="100" alt="Makefile">
 
 - [Notes](docs/regex.md)
+
+<br>
+
+## PostgreSQL
+<img align="right" src="https://github.com/user-attachments/assets/ecb412fa-44ff-46f3-a226-753d0b7555ea" height="100" alt="PostgreSQL">
+
+- [Notes](docs/postgresql.md)

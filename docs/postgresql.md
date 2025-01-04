@@ -1,6 +1,9 @@
 ---
 sidebar_position: 7
 title: PostgreSQL
+description: Learn about PostgreSQL and its benefits.
+tags: ["PostgreSQL", "Database", "RDBMS"]
+keywords: ["PostgreSQL", "Database", "RDBMS"]
 slug: /postgresql
 ---
 

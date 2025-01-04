@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Node.js
+description: Learn about Node.js and its benefits.
+tags: ["Node.js", "JavaScript", "Runtime Environment"]
+keywords: ["Node.js", "JavaScript", "Runtime Environment"]
 slug: /
 ---
 

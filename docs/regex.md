@@ -1,6 +1,9 @@
 ---
 sidebar_position: 6
 title: Regex
+description: Learn about Regular Expressions and its benefits.
+tags: ["Regex", "Pattern Matching", "Text Processing"]
+keywords: ["Regex", "Pattern Matching", "Text Processing"]
 slug: /regex
 ---
 

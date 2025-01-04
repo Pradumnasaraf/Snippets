@@ -1,6 +1,9 @@
 ---
 sidebar_position: 5
 title: Redis
+description: Learn about Redis and its benefits.
+tags: ["Redis", "Database", "Cache", "Message Broker"]
+keywords: ["Redis", "Database", "Cache", "Message Broker"]
 slug: /redis
 ---
 

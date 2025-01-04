@@ -1,7 +1,10 @@
 ---
 sidebar_position: 3
 title: Homebrew
-slug: /homebrew
+description: Learn about Homebrew and its benefits.
+tags: ["Homebrew", "Package Manager", "macOS"]
+keywords: ["Homebrew", "Package Manager", "macOS"]
+slug: "/homebrew"
 ---
 
 Homebrew is a package manager for macOS. It allows you to install and manage packages and applications from the command line.
