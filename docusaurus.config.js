@@ -5,12 +5,16 @@ const config = {
   title: 'Snippets',
   tagline: 'A Collection of Useful Dev tools and Snippets',
   favicon: 'img/favicon.ico',
-  url: 'http:snippets.pradumnasaraf.dev',
+  url: 'https://snippets.pradumnasaraf.dev',
   baseUrl: '/',
   organizationName: 'Pradumnasaraf',
   projectName: 'Snippets',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -56,7 +60,7 @@ const config = {
         },
         items: [
           {
-            href: 'https:github.com/Pradumnasaraf/Snippets',
+            href: 'https://github.com/Pradumnasaraf/Snippets',
             label: 'GitHub',
             position: 'right',
           },
